@@ -8,9 +8,55 @@
 """
 from setuptools import setup
 
+with open("README.md", "r", encoding="utf-8") as fh:
+    long_description = fh.read()
+
 if __name__ == "__main__":
     try:
-        setup(use_scm_version={"version_scheme": "no-guess-dev"})
+        setup(
+            use_scm_version={"version_scheme": "no-guess-dev"},
+            name="soda_data",
+            version="0.1.0",
+            python_requires=">=3.8",
+            author="Source Data",
+            author_email="source_data@embo.org",
+            description="""The Source Data dataset: a biological annotated
+                dataset for machine learning and AI in the publishing context.""",
+            long_description=long_description,
+            long_description_content_type="text/markdown",
+            url="https://github.com/source-data/soda-data",
+            packages=["smtag"],
+            install_requires=[
+                "torch",
+                "tensorflow",
+                "transformers<=4.20",
+                "datasets",
+                "nltk",
+                "scikit-learn",
+                "python-dotenv",
+                "seqeval",
+                "celery",
+                "flower",
+                "lxml",
+                "neo4j",
+                "spacy",
+                "notebook",
+                "ipywidgets",
+                "plotly",
+            ],
+            classifiers=(
+                # full list: https://pypi.org/pypi?%3Aaction=list_classifiers
+                "Development Status :: 1 - Planning",
+                "Intended Audience :: Science/Research",
+                "Programming Language :: Python :: 3.6",
+                "License :: Other/Proprietary License",
+                "Operating System :: MacOS :: MacOS X",
+                "Operating System :: POSIX",
+                "Topic :: Scientific/Engineering :: Artificial Intelligence",
+                "Topic :: Scientific/Engineering :: Bio-Informatics",
+                "Topic :: Software Development :: Libraries",
+            ),
+        )
     except:  # noqa
         print(
             "\n\nAn error occurred while building the project, "
