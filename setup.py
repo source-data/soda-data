@@ -25,7 +25,7 @@ if __name__ == "__main__":
             long_description=long_description,
             long_description_content_type="text/markdown",
             url="https://github.com/source-data/soda-data",
-            packages=["smtag"],
+            packages=["soda_data"],
             install_requires=[
                 "torch",
                 "tensorflow",
@@ -44,7 +44,7 @@ if __name__ == "__main__":
                 "ipywidgets",
                 "plotly",
             ],
-            classifiers=(
+            classifiers=[
                 # full list: https://pypi.org/pypi?%3Aaction=list_classifiers
                 "Development Status :: 1 - Planning",
                 "Intended Audience :: Science/Research",
@@ -55,7 +55,7 @@ if __name__ == "__main__":
                 "Topic :: Scientific/Engineering :: Artificial Intelligence",
                 "Topic :: Scientific/Engineering :: Bio-Informatics",
                 "Topic :: Software Development :: Libraries",
-            ),
+            ],
         )
     except:  # noqa
         print(

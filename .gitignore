@@ -57,3 +57,4 @@ MANIFEST
 cache
 data
 dist
+log/
