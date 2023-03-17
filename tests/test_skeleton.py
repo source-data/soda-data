@@ -1,6 +1,6 @@
 import pytest
 
-from soda_data.skeleton import fib, main
+from src.soda_data.skeleton import fib, main
 
 __author__ = "drAbreu"
 __copyright__ = "drAbreu"

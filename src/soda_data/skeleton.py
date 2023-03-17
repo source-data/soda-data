@@ -19,12 +19,11 @@ References:
     - https://setuptools.pypa.io/en/latest/userguide/entry_point.html
     - https://pip.pypa.io/en/stable/reference/pip_install
 """
-
 import argparse
 import logging
 import sys
 
-from soda_data import __version__
+from src.soda_data import __version__
 
 __author__ = "drAbreu"
 __copyright__ = "drAbreu"

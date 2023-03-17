@@ -1,0 +1,313 @@
+responses:
+- response:
+    auto_calculate_content_length: false
+    body: "{\"current_panel_id\":\"13904\",\"paper\":{\"paper_id\":\"810\",\"author_list\"\
+      :\"El-Awady AR, Miles B, Scisci E, Kurago ZB, Palani CD, Arce RM, Waller JL,\
+      \ Genco CA, Slocum C, Manning M, Schoenlein PV, Cutler CW.\",\"title\":\"Porphyromonas\
+      \ gingivalis evasion of autophagy and intracellular killing by human myeloid\
+      \ dendritic cells involves DC-SIGN-TLR2 crosstalk.\",\"doi\":\"10.1371\\/journal.ppat.1004647\"\
+      ,\"journal\":\"PLoS pathogens\",\"year\":\"2015\",\"biostudies_id\":null,\"\
+      date\":\"2015-02-13\",\"create_date\":\"2018-01-05 14:33:06\",\"last_modification_date\"\
+      :\"2020-08-05 07:29:26\",\"biostudies_publication_date\":null,\"figures\":[{\"\
+      label\":\"Fig 1\",\"panel_id\":\"13904\"},{\"label\":\"Fig 2\",\"panel_id\"\
+      :\"13907\"},{\"label\":\"Fig 3\",\"panel_id\":\"13910\"},{\"label\":\"Fig 4\"\
+      ,\"panel_id\":\"13913\"},{\"label\":\"Fig 5\",\"panel_id\":\"13915\"},{\"label\"\
+      :\"Fig 6\",\"panel_id\":\"13918\"},{\"label\":\"Fig 7\",\"panel_id\":\"13923\"\
+      },{\"label\":\"Fig 8\",\"panel_id\":\"13925\"},{\"label\":\"Fig 9\",\"panel_id\"\
+      :\"13928\"},{\"label\":\"Fig 10\",\"panel_id\":\"13931\"}],\"authors\":[{\"\
+      fullname\":\"El-Awady AR\",\"firstname\":\"Ahmed R\",\"lastname\":\"El-Awady\"\
+      ,\"initials\":\"AR\",\"affiliation\":\"Department of Periodontics, Georgia Regents\
+      \ University, Augusta, Georgia, United States of America.\",\"orcid\":null,\"\
+      author_id\":\"4407\"},{\"fullname\":\"Miles B\",\"firstname\":\"Brodie\",\"\
+      lastname\":\"Miles\",\"initials\":\"B\",\"affiliation\":\"Department of Medicine,\
+      \ University of Colorado, Aurora, Colorado, United States of America.\",\"orcid\"\
+      :null,\"author_id\":\"4408\"},{\"fullname\":\"Scisci E\",\"firstname\":\"Elizabeth\"\
+      ,\"lastname\":\"Scisci\",\"initials\":\"E\",\"affiliation\":\"School of Dental\
+      \ Medicine, Stony Brook University, Stony Brook, New York, United States of\
+      \ America.\",\"orcid\":null,\"author_id\":\"4409\"},{\"fullname\":\"Kurago ZB\"\
+      ,\"firstname\":\"Zoya B\",\"lastname\":\"Kurago\",\"initials\":\"ZB\",\"affiliation\"\
+      :\"Department of Oral Health and Diagnostic Sciences, Georgia Regents University,\
+      \ Augusta, Georgia, United States of America.\",\"orcid\":null,\"author_id\"\
+      :\"4410\"},{\"fullname\":\"Palani CD\",\"firstname\":\"Chithra D\",\"lastname\"\
+      :\"Palani\",\"initials\":\"CD\",\"affiliation\":\"Department of Oral Health\
+      \ and Diagnostic Sciences, Georgia Regents University, Augusta, Georgia, United\
+      \ States of America.\",\"orcid\":null,\"author_id\":\"4411\"},{\"fullname\"\
+      :\"Arce RM\",\"firstname\":\"Roger M\",\"lastname\":\"Arce\",\"initials\":\"\
+      RM\",\"affiliation\":\"Department of Periodontics, Georgia Regents University,\
+      \ Augusta, Georgia, United States of America.\",\"orcid\":\"0000-0002-4721-4722\"\
+      ,\"author_id\":\"4412\"},{\"fullname\":\"Waller JL\",\"firstname\":\"Jennifer\
+      \ L\",\"lastname\":\"Waller\",\"initials\":\"JL\",\"affiliation\":\"Department\
+      \ of Biostatistics and Epidemiology, Georgia Regents University, Augusta, Georgia,\
+      \ United States of America.\",\"orcid\":null,\"author_id\":\"4413\"},{\"fullname\"\
+      :\"Genco CA\",\"firstname\":\"Caroline A\",\"lastname\":\"Genco\",\"initials\"\
+      :\"CA\",\"affiliation\":\"Department of Medicine, Section of Infectious Diseases,\
+      \ Boston University School of Medicine, Boston, Massachusetts, United States\
+      \ of America; Department of Microbiology, Boston University School of Medicine,\
+      \ Boston, Massachusetts, United States of America.\",\"orcid\":null,\"author_id\"\
+      :\"4414\"},{\"fullname\":\"Slocum C\",\"firstname\":\"Connie\",\"lastname\"\
+      :\"Slocum\",\"initials\":\"C\",\"affiliation\":\"Department of Microbiology,\
+      \ Boston University School of Medicine, Boston, Massachusetts, United States\
+      \ of America.\",\"orcid\":null,\"author_id\":\"4415\"},{\"fullname\":\"Manning\
+      \ M\",\"firstname\":\"Matthew\",\"lastname\":\"Manning\",\"initials\":\"M\"\
+      ,\"affiliation\":\"Department of Cellular Biology and Anatomy, Georgia Regents\
+      \ University, Augusta, Georgia, United States of America.\",\"orcid\":null,\"\
+      author_id\":\"4416\"},{\"fullname\":\"Schoenlein PV\",\"firstname\":\"Patricia\
+      \ V\",\"lastname\":\"Schoenlein\",\"initials\":\"PV\",\"affiliation\":\"Department\
+      \ of Cellular Biology and Anatomy, Georgia Regents University, Augusta, Georgia,\
+      \ United States of America.\",\"orcid\":null,\"author_id\":\"4417\"},{\"fullname\"\
+      :\"Cutler CW\",\"firstname\":\"Christopher W\",\"lastname\":\"Cutler\",\"initials\"\
+      :\"CW\",\"affiliation\":\"Department of Periodontics, Georgia Regents University,\
+      \ Augusta, Georgia, United States of America.\",\"orcid\":null,\"author_id\"\
+      :\"4418\"}]},\"figure\":{\"figure_id\":\"4204\",\"label\":\"Fig 1\",\"figure_caption\"\
+      :\"\\n<title>High intracellular content of Mfa1<sup>+<\\/sup>Pg within human\
+      \ MoDCs.<\\/title>\\n<p><bold>A)<\\/bold> Transmission electron microscopy (TEM)\
+      \ of MoDCs infected with <italic>P. gingivalis<\\/italic> for 2, 12 and 24 hours\
+      \ (left, middle and right panels). The sections show the intra-and extra-cellular\
+      \ contents of Cont. (un-infected), Pg381, Mfa1<sup>+<\\/sup>Pg and FimA<sup>+<\\\
+      /sup>Pg infected MoDCs for the different time points. <bold>B)<\\/bold> The\
+      \ figure shows the intracellular content of <italic>P. gingivalis<\\/italic>\
+      \ strains after 24 hours of infection. MoDCs infected with Pg381 or isogenic\
+      \ mutants strains were lysed and the survived intracellular bacteria were re-suspended\
+      \ and maintained in anaerobic broth for 5 days. The data represents CFU within\
+      \ MoDCs harvested from three healthy individuals. The means \xB1standard deviation\
+      \ (in triplicates) were analyzed by One-way ANOVA of different groups and Tukey\u2019\
+      s test for multiple group comparisons within 3 different experiments (* statistical\
+      \ significance at the <italic>p<\\/italic><0.001). <bold>C)<\\/bold> Growth\
+      \ curves of Pg381 and mutant strains (Mfa1<sup>+<\\/sup>Pg and Fima<sup>+<\\\
+      /sup>Pg) in anaerobic condition in the absence of DCs. The means \xB1standard\
+      \ deviations were analyzed by One-way ANOVA of different groups and Tukey\u2019\
+      s test for multiple group comparisons within 3 different experiments.<\\/p>\\\
+      n\\n\",\"figure_title\":\"High intracellular content of Mfa1<sup>+<\\/sup>Pg\
+      \ within human MoDCs.\",\"title\":\"High intracellular content of Mfa1<sup>+<\\\
+      /sup>Pg within human MoDCs.\",\"href\":\"https:\\/\\/api.sourcedata.io\\/file.php?figure_id=4204\"\
+      ,\"path\":\"\\/var\\/vhosts\\/vital-it.ch\\/sourcedata\\/conf\\/..\\/data\\\
+      /papers\\/2015\\/SD000810\\/figures\\/Fig 1.jpg\",\"width\":773,\"height\":1200,\"\
+      panels\":[{\"panel_id\":\"13904\",\"label\":\"Fig 1-A\",\"caption\":\"<span>A)\
+      \ <sd-tag id=\\\"sdTag3\\\">Transmission electron microscopy<\\/sd-tag> (TEM)\
+      \ of <sd-tag id=\\\"sdTag2\\\">MoDCs<\\/sd-tag> infected with <sd-tag id=\\\"\
+      sdTag1\\\">P. gingivalis<\\/sd-tag> for 2, 12 and 24 hours (left, middle and\
+      \ right panels). The sections show the intra-and extra-cellular contents of\
+      \ Cont. (un-infected), <sd-tag id=\\\"sdTag6\\\">Pg381<\\/sd-tag>, <sd-tag id=\\\
+      \"sdTag7\\\">Mfa1<\\/sd-tag><\\/span><sup>+<\\/sup><span>Pg and <sd-tag id=\\\
+      \"sdTag8\\\">FimA<\\/sd-tag><\\/span><sup>+<\\/sup><span>Pg infected <sd-tag\
+      \ id=\\\"sdTag9\\\">MoDCs<\\/sd-tag> for the different time points<\\/span>\"\
+      ,\"tax_id\":[\"9606\",\"837\"],\"author_ids\":null,\"stripped_caption\":\"A)\
+      \ Transmission electron microscopy (TEM) of MoDCs infected with P. gingivalis\
+      \ for 2, 12 and 24 hours (left, middle and right panels). The sections show\
+      \ the intra-and extra-cellular contents of Cont. (un-infected), Pg381, Mfa1+Pg\
+      \ and FimA+Pg infected MoDCs for the different time points\",\"authors\":[],\"\
+      href\":\"https:\\/\\/api.sourcedata.io\\/file.php?panel_id=13904\",\"links\"\
+      :[],\"panel_number\":\"Fig 1-A\",\"coords\":{\"topleft_x\":0,\"topleft_y\":0,\"\
+      bottomright_x\":773,\"bottomright_y\":899},\"tags\":[{\"id\":\"7\",\"type\"\
+      :\"gene\",\"role\":\"intervention\",\"text\":\"Mfa1\",\"category\":null,\"in_caption\"\
+      :\"Y\",\"external_ids\":[\"2551415\"],\"external_names\":[\"PG_RS00820\"],\"\
+      external_tax_ids\":[\"242619\"],\"external_databases\":[\"NCBI gene\"],\"external_urls\"\
+      :[\"http:\\/\\/www.ncbi.nlm.nih.gov\\/gene\\/\"],\"external_namespaces\":[\"\
+      ncbigene\"],\"external_tax_names\":[\"Porphyromonas gingivalis W83\"]},{\"id\"\
+      :\"8\",\"type\":\"gene\",\"role\":\"intervention\",\"text\":\"FimA\",\"category\"\
+      :null,\"in_caption\":\"Y\",\"external_ids\":[\"2551422\"],\"external_names\"\
+      :[\"PG_RS09455\"],\"external_tax_ids\":[\"242619\"],\"external_databases\":[\"\
+      NCBI gene\"],\"external_urls\":[\"http:\\/\\/www.ncbi.nlm.nih.gov\\/gene\\/\"\
+      ],\"external_namespaces\":[\"ncbigene\"],\"external_tax_names\":[\"Porphyromonas\
+      \ gingivalis W83\"]},{\"id\":\"2\",\"type\":\"cell\",\"role\":\"assayed\",\"\
+      text\":\"MoDCs\",\"category\":null,\"in_caption\":\"Y\",\"external_ids\":[\"\
+      CL:0001029\"],\"external_names\":[\"common dendritic progenitor\"],\"external_databases\"\
+      :[\"CL\"],\"external_urls\":[\" https:\\/\\/identifiers.org\\/\"],\"external_namespaces\"\
+      :[\"cl\"]},{\"id\":\"9\",\"type\":\"cell\",\"role\":\"assayed\",\"text\":\"\
+      MoDCs\",\"category\":null,\"in_caption\":\"Y\",\"external_ids\":[\"CL:0001029\"\
+      ],\"external_names\":[\"common dendritic progenitor\"],\"external_databases\"\
+      :[\"CL\"],\"external_urls\":[\" https:\\/\\/identifiers.org\\/\"],\"external_namespaces\"\
+      :[\"cl\"]},{\"id\":\"1\",\"type\":\"organism\",\"role\":\"component\",\"text\"\
+      :\"P. gingivalis\",\"category\":null,\"in_caption\":\"Y\",\"external_ids\":[\"\
+      837\"],\"external_names\":[\"Porphyromonas gingivalis\"],\"external_tax_ids\"\
+      :[\"837\"],\"external_databases\":[\"NCBI taxon\"],\"external_urls\":[\"http:\\\
+      /\\/www.ncbi.nlm.nih.gov\\/taxonomy\\/\"],\"external_namespaces\":[\"taxonomy\"\
+      ],\"external_tax_names\":[\"Porphyromonas gingivalis\"]},{\"id\":\"6\",\"type\"\
+      :\"organism\",\"role\":\"intervention\",\"text\":\"Pg381\",\"category\":null,\"\
+      in_caption\":\"Y\",\"external_ids\":[\"837\"],\"external_names\":[\"Porphyromonas\
+      \ gingivalis\"],\"external_databases\":[\"NCBI taxon\"],\"external_urls\":[\"\
+      http:\\/\\/www.ncbi.nlm.nih.gov\\/taxonomy\\/\"],\"external_namespaces\":[\"\
+      taxonomy\"]},{\"id\":\"3\",\"type\":null,\"role\":null,\"text\":\"Transmission\
+      \ electron microscopy\",\"category\":\"assay\",\"in_caption\":\"Y\"},{\"id\"\
+      :\"5\",\"type\":null,\"role\":null,\"text\":\"time course\",\"category\":\"\
+      time\",\"in_caption\":\"N\"}],\"formatted_caption\":\"<sd-panel><span>A) <sd-tag\
+      \ id=\\\"sdTag3\\\" category=\\\"assay\\\">Transmission electron microscopy<\\\
+      /sd-tag> (TEM) of <sd-tag id=\\\"sdTag2\\\" type=\\\"cell\\\" role=\\\"assayed\\\
+      \" external_id0=\\\"CL:0001029\\\" external_database0=\\\"CL\\\">MoDCs<\\/sd-tag>\
+      \ infected with <sd-tag id=\\\"sdTag1\\\" type=\\\"organism\\\" role=\\\"component\\\
+      \" external_id0=\\\"837\\\" external_database0=\\\"NCBI taxon\\\">P. gingivalis<\\\
+      /sd-tag> for 2, 12 and 24 hours (left, middle and right panels). The sections\
+      \ show the intra-and extra-cellular contents of Cont. (un-infected), <sd-tag\
+      \ id=\\\"sdTag6\\\" type=\\\"organism\\\" role=\\\"intervention\\\" external_id0=\\\
+      \"837\\\" external_database0=\\\"NCBI taxon\\\">Pg381<\\/sd-tag>, <sd-tag id=\\\
+      \"sdTag7\\\" type=\\\"gene\\\" role=\\\"intervention\\\" external_id0=\\\"2551415\\\
+      \" external_database0=\\\"NCBI gene\\\">Mfa1<\\/sd-tag><\\/span><sup>+<\\/sup><span>Pg\
+      \ and <sd-tag id=\\\"sdTag8\\\" type=\\\"gene\\\" role=\\\"intervention\\\"\
+      \ external_id0=\\\"2551422\\\" external_database0=\\\"NCBI gene\\\">FimA<\\\
+      /sd-tag><\\/span><sup>+<\\/sup><span>Pg infected <sd-tag id=\\\"sdTag9\\\" type=\\\
+      \"cell\\\" role=\\\"assayed\\\" external_id0=\\\"CL:0001029\\\" external_database0=\\\
+      \"CL\\\">MoDCs<\\/sd-tag> for the different time points<\\/span><\\/sd-panel>\"\
+      },{\"panel_id\":\"13905\",\"label\":\"Fig 1-B\",\"caption\":\"<p>B) The figure\
+      \ shows the intracellular content of <sd-tag id=\\\"sdTag15\\\">P. gingivalis<\\\
+      /sd-tag> strains after 24 hours of infection. <sd-tag id=\\\"sdTag16\\\">MoDCs<\\\
+      /sd-tag> infected with <sd-tag id=\\\"sdTag17\\\">Pg381<\\/sd-tag> or isogenic\
+      \ mutants strains were lysed and the survived intracellular bacteria were re-suspended\
+      \ and maintained in anaerobic broth for 5 days. The data represents <sd-tag\
+      \ id=\\\"sdTag13\\\">CFU<\\/sd-tag> within <sd-tag id=\\\"sdTag18\\\">MoDCs<\\\
+      /sd-tag> harvested from three healthy <sd-tag id=\\\"sdTag14\\\">individuals<\\\
+      /sd-tag>. The means \xB1standard deviation (in triplicates) were analyzed by\
+      \ One-way ANOVA of different groups and Tukey's test for multiple group comparisons\
+      \ within 3 different experiments (* statistical significance at the p&lt;0.001).<\\\
+      /p>\",\"tax_id\":[\"9606\",\"837\"],\"author_ids\":null,\"stripped_caption\"\
+      :\"B) The figure shows the intracellular content of P. gingivalis strains after\
+      \ 24 hours of infection. MoDCs infected with Pg381 or isogenic mutants strains\
+      \ were lysed and the survived intracellular bacteria were re-suspended and maintained\
+      \ in anaerobic broth for 5 days. The data represents CFU within MoDCs harvested\
+      \ from three healthy individuals. The means \xB1standard deviation (in triplicates)\
+      \ were analyzed by One-way ANOVA of different groups and Tukey's test for multiple\
+      \ group comparisons within 3 different experiments (* statistical significance\
+      \ at the p&lt;0.001).\",\"authors\":[],\"href\":\"https:\\/\\/api.sourcedata.io\\\
+      /file.php?panel_id=13905\",\"links\":[],\"panel_number\":\"Fig 1-B\",\"coords\"\
+      :{\"topleft_x\":1,\"topleft_y\":897,\"bottomright_x\":380,\"bottomright_y\"\
+      :1200},\"tags\":[{\"id\":\"11\",\"type\":\"molecule\",\"role\":\"component\"\
+      ,\"text\":\"CO2\",\"category\":null,\"in_caption\":\"N\",\"external_ids\":[\"\
+      CHEBI:16526\"],\"external_names\":[\"carbon dioxide\"],\"external_databases\"\
+      :[\"ChEBI\"],\"external_urls\":[\"http:\\/\\/www.ebi.ac.uk\\/chebi\\/searchId.do?chebiId=\"\
+      ],\"external_namespaces\":[\"CHEBI\"]},{\"id\":\"10\",\"type\":\"molecule\"\
+      ,\"role\":\"component\",\"text\":\"H2\",\"category\":null,\"in_caption\":\"\
+      N\",\"external_ids\":[\"CHEBI:18276\"],\"external_names\":[\"dihydrogen\"],\"\
+      external_databases\":[\"ChEBI\"],\"external_urls\":[\"http:\\/\\/www.ebi.ac.uk\\\
+      /chebi\\/searchId.do?chebiId=\"],\"external_namespaces\":[\"CHEBI\"]},{\"id\"\
+      :\"12\",\"type\":\"molecule\",\"role\":\"component\",\"text\":\"N2\",\"category\"\
+      :null,\"in_caption\":\"N\",\"external_ids\":[\"CHEBI:17997\"],\"external_names\"\
+      :[\"dinitrogen\"],\"external_databases\":[\"ChEBI\"],\"external_urls\":[\"http:\\\
+      /\\/www.ebi.ac.uk\\/chebi\\/searchId.do?chebiId=\"],\"external_namespaces\"\
+      :[\"CHEBI\"]},{\"id\":\"23\",\"type\":\"gene\",\"role\":\"intervention\",\"\
+      text\":\"Mfa1\",\"category\":null,\"in_caption\":\"N\",\"external_ids\":[\"\
+      2551415\"],\"external_names\":[\"PG_RS00820\"],\"external_tax_ids\":[\"242619\"\
+      ],\"external_databases\":[\"NCBI gene\"],\"external_urls\":[\"http:\\/\\/www.ncbi.nlm.nih.gov\\\
+      /gene\\/\"],\"external_namespaces\":[\"ncbigene\"],\"external_tax_names\":[\"\
+      Porphyromonas gingivalis W83\"]},{\"id\":\"24\",\"type\":\"gene\",\"role\":\"\
+      intervention\",\"text\":\"FimA\",\"category\":null,\"in_caption\":\"N\",\"external_ids\"\
+      :[\"2551422\"],\"external_names\":[\"PG_RS09455\"],\"external_tax_ids\":[\"\
+      242619\"],\"external_databases\":[\"NCBI gene\"],\"external_urls\":[\"http:\\\
+      /\\/www.ncbi.nlm.nih.gov\\/gene\\/\"],\"external_namespaces\":[\"ncbigene\"\
+      ],\"external_tax_names\":[\"Porphyromonas gingivalis W83\"]},{\"id\":\"16\"\
+      ,\"type\":\"cell\",\"role\":\"component\",\"text\":\"MoDCs\",\"category\":null,\"\
+      in_caption\":\"Y\",\"external_ids\":[\"CL:0001029\"],\"external_names\":[\"\
+      common dendritic progenitor\"],\"external_databases\":[\"CL\"],\"external_urls\"\
+      :[\" https:\\/\\/identifiers.org\\/\"],\"external_namespaces\":[\"cl\"]},{\"\
+      id\":\"18\",\"type\":\"cell\",\"role\":\"component\",\"text\":\"MoDCs\",\"category\"\
+      :null,\"in_caption\":\"Y\",\"external_ids\":[\"CL:0001029\"],\"external_names\"\
+      :[\"common dendritic progenitor\"],\"external_databases\":[\"CL\"],\"external_urls\"\
+      :[\" https:\\/\\/identifiers.org\\/\"],\"external_namespaces\":[\"cl\"]},{\"\
+      id\":\"14\",\"type\":\"organism\",\"role\":\"experiment\",\"text\":\"individuals\"\
+      ,\"category\":null,\"in_caption\":\"Y\",\"external_ids\":[\"9606\"],\"external_names\"\
+      :[\"Homo sapiens\"],\"external_databases\":[\"NCBI taxon\"],\"external_urls\"\
+      :[\"http:\\/\\/www.ncbi.nlm.nih.gov\\/taxonomy\\/\"],\"external_namespaces\"\
+      :[\"taxonomy\"]},{\"id\":\"15\",\"type\":\"organism\",\"role\":\"assayed\",\"\
+      text\":\"P. gingivalis\",\"category\":null,\"in_caption\":\"Y\",\"external_ids\"\
+      :[\"837\"],\"external_names\":[\"Porphyromonas gingivalis\"],\"external_tax_ids\"\
+      :[\"837\"],\"external_databases\":[\"NCBI taxon\"],\"external_urls\":[\"http:\\\
+      /\\/www.ncbi.nlm.nih.gov\\/taxonomy\\/\"],\"external_namespaces\":[\"taxonomy\"\
+      ],\"external_tax_names\":[\"Porphyromonas gingivalis\"]},{\"id\":\"17\",\"type\"\
+      :\"organism\",\"role\":\"intervention\",\"text\":\"Pg381\",\"category\":null,\"\
+      in_caption\":\"Y\",\"external_ids\":[\"837\"],\"external_names\":[\"Porphyromonas\
+      \ gingivalis\"],\"external_databases\":[\"NCBI taxon\"],\"external_urls\":[\"\
+      http:\\/\\/www.ncbi.nlm.nih.gov\\/taxonomy\\/\"],\"external_namespaces\":[\"\
+      taxonomy\"]},{\"id\":\"13\",\"type\":null,\"role\":null,\"text\":\"CFU\",\"\
+      category\":\"assay\",\"in_caption\":\"Y\"}],\"formatted_caption\":\"<sd-panel><p>B)\
+      \ The figure shows the intracellular content of <sd-tag id=\\\"sdTag15\\\" type=\\\
+      \"organism\\\" role=\\\"assayed\\\" external_id0=\\\"837\\\" external_database0=\\\
+      \"NCBI taxon\\\">P. gingivalis<\\/sd-tag> strains after 24 hours of infection.\
+      \ <sd-tag id=\\\"sdTag16\\\" type=\\\"cell\\\" role=\\\"component\\\" external_id0=\\\
+      \"CL:0001029\\\" external_database0=\\\"CL\\\">MoDCs<\\/sd-tag> infected with\
+      \ <sd-tag id=\\\"sdTag17\\\" type=\\\"organism\\\" role=\\\"intervention\\\"\
+      \ external_id0=\\\"837\\\" external_database0=\\\"NCBI taxon\\\">Pg381<\\/sd-tag>\
+      \ or isogenic mutants strains were lysed and the survived intracellular bacteria\
+      \ were re-suspended and maintained in anaerobic broth for 5 days. The data represents\
+      \ <sd-tag id=\\\"sdTag13\\\" category=\\\"assay\\\">CFU<\\/sd-tag> within <sd-tag\
+      \ id=\\\"sdTag18\\\" type=\\\"cell\\\" role=\\\"component\\\" external_id0=\\\
+      \"CL:0001029\\\" external_database0=\\\"CL\\\">MoDCs<\\/sd-tag> harvested from\
+      \ three healthy <sd-tag id=\\\"sdTag14\\\" type=\\\"organism\\\" role=\\\"experiment\\\
+      \" external_id0=\\\"9606\\\" external_database0=\\\"NCBI taxon\\\">individuals<\\\
+      /sd-tag>. The means \xB1standard deviation (in triplicates) were analyzed by\
+      \ One-way ANOVA of different groups and Tukey's test for multiple group comparisons\
+      \ within 3 different experiments (* statistical significance at the p&lt;0.001).<\\\
+      /p><\\/sd-panel>\"},{\"panel_id\":\"13906\",\"label\":\"Fig 1-C\",\"caption\"\
+      :\"<p>B) The figure shows the intracellular content of <sd-tag id=\\\"sdTag15\\\
+      \">P. gingivalis<\\/sd-tag> strains after 24 hours of infection. <sd-tag id=\\\
+      \"sdTag16\\\">MoDCs<\\/sd-tag> infected with <sd-tag id=\\\"sdTag17\\\">Pg381<\\\
+      /sd-tag> or isogenic mutants strains were lysed and the survived intracellular\
+      \ bacteria were re-suspended and maintained in anaerobic broth for 5 days. The\
+      \ data represents <sd-tag id=\\\"sdTag13\\\">CFU<\\/sd-tag> within <sd-tag id=\\\
+      \"sdTag18\\\">MoDCs<\\/sd-tag> harvested from three healthy <sd-tag id=\\\"\
+      sdTag14\\\">individuals<\\/sd-tag>. The means \xB1standard deviation (in triplicates)\
+      \ were analyzed by One-way ANOVA of different groups and Tukey's test for multiple\
+      \ group comparisons within 3 different experiments (* statistical significance\
+      \ at the p&lt;0.001).<\\/p>\",\"tax_id\":[\"9606\",\"837\"],\"author_ids\":null,\"\
+      stripped_caption\":\"B) The figure shows the intracellular content of P. gingivalis\
+      \ strains after 24 hours of infection. MoDCs infected with Pg381 or isogenic\
+      \ mutants strains were lysed and the survived intracellular bacteria were re-suspended\
+      \ and maintained in anaerobic broth for 5 days. The data represents CFU within\
+      \ MoDCs harvested from three healthy individuals. The means \xB1standard deviation\
+      \ (in triplicates) were analyzed by One-way ANOVA of different groups and Tukey's\
+      \ test for multiple group comparisons within 3 different experiments (* statistical\
+      \ significance at the p&lt;0.001).\",\"authors\":[],\"href\":\"https:\\/\\/api.sourcedata.io\\\
+      /file.php?panel_id=13906\",\"links\":[],\"panel_number\":\"Fig 1-C\",\"coords\"\
+      :{\"topleft_x\":392,\"topleft_y\":898,\"bottomright_x\":773,\"bottomright_y\"\
+      :1185},\"tags\":[{\"id\":\"31\",\"type\":\"molecule\",\"role\":\"component\"\
+      ,\"text\":\"CO2\",\"category\":null,\"in_caption\":\"N\",\"external_ids\":[\"\
+      CHEBI:16526\"],\"external_names\":[\"carbon dioxide\"],\"external_databases\"\
+      :[\"ChEBI\"],\"external_urls\":[\"http:\\/\\/www.ebi.ac.uk\\/chebi\\/searchId.do?chebiId=\"\
+      ],\"external_namespaces\":[\"CHEBI\"]},{\"id\":\"30\",\"type\":\"molecule\"\
+      ,\"role\":\"component\",\"text\":\"H2\",\"category\":null,\"in_caption\":\"\
+      N\",\"external_ids\":[\"CHEBI:18276\"],\"external_names\":[\"dihydrogen\"],\"\
+      external_databases\":[\"ChEBI\"],\"external_urls\":[\"http:\\/\\/www.ebi.ac.uk\\\
+      /chebi\\/searchId.do?chebiId=\"],\"external_namespaces\":[\"CHEBI\"]},{\"id\"\
+      :\"32\",\"type\":\"molecule\",\"role\":\"component\",\"text\":\"N2\",\"category\"\
+      :null,\"in_caption\":\"N\",\"external_ids\":[\"CHEBI:17997\"],\"external_names\"\
+      :[\"dinitrogen\"],\"external_databases\":[\"ChEBI\"],\"external_urls\":[\"http:\\\
+      /\\/www.ebi.ac.uk\\/chebi\\/searchId.do?chebiId=\"],\"external_namespaces\"\
+      :[\"CHEBI\"]},{\"id\":\"28\",\"type\":\"gene\",\"role\":\"intervention\",\"\
+      text\":\"Mfa1\",\"category\":null,\"in_caption\":\"N\",\"external_ids\":[\"\
+      2551415\"],\"external_names\":[\"PG_RS00820\"],\"external_tax_ids\":[\"242619\"\
+      ],\"external_databases\":[\"NCBI gene\"],\"external_urls\":[\"http:\\/\\/www.ncbi.nlm.nih.gov\\\
+      /gene\\/\"],\"external_namespaces\":[\"ncbigene\"],\"external_tax_names\":[\"\
+      Porphyromonas gingivalis W83\"]},{\"id\":\"36\",\"type\":\"cell\",\"role\":\"\
+      component\",\"text\":\"MoDCs\",\"category\":null,\"in_caption\":\"N\",\"external_ids\"\
+      :[\"CL:0001029\"],\"external_names\":[\"common dendritic progenitor\"],\"external_databases\"\
+      :[\"CL\"],\"external_urls\":[\" https:\\/\\/identifiers.org\\/\"],\"external_namespaces\"\
+      :[\"cl\"]},{\"id\":\"35\",\"type\":\"organism\",\"role\":\"assayed\",\"text\"\
+      :\"P. gingivalis\",\"category\":null,\"in_caption\":\"N\",\"external_ids\":[\"\
+      837\"],\"external_names\":[\"Porphyromonas gingivalis\"],\"external_tax_ids\"\
+      :[\"837\"],\"external_databases\":[\"NCBI taxon\"],\"external_urls\":[\"http:\\\
+      /\\/www.ncbi.nlm.nih.gov\\/taxonomy\\/\"],\"external_namespaces\":[\"taxonomy\"\
+      ],\"external_tax_names\":[\"Porphyromonas gingivalis\"]},{\"id\":\"27\",\"type\"\
+      :\"organism\",\"role\":\"intervention\",\"text\":\"Pg381\",\"category\":null,\"\
+      in_caption\":\"N\",\"external_ids\":[\"837\"],\"external_names\":[\"Porphyromonas\
+      \ gingivalis\"],\"external_databases\":[\"NCBI taxon\"],\"external_urls\":[\"\
+      http:\\/\\/www.ncbi.nlm.nih.gov\\/taxonomy\\/\"],\"external_namespaces\":[\"\
+      taxonomy\"]},{\"id\":\"33\",\"type\":null,\"role\":null,\"text\":\"CFU\",\"\
+      category\":\"assay\",\"in_caption\":\"N\"},{\"id\":\"25\",\"type\":null,\"role\"\
+      :null,\"text\":\"Growth\",\"category\":\"assay\",\"in_caption\":\"N\",\"external_ids\"\
+      :[\"BAO_0002100\"],\"external_names\":[\"cell growth assay\"],\"external_databases\"\
+      :[\"BAO\"],\"external_urls\":[\"https:\\/\\/bioportal.bioontology.org\\/ontologies\\\
+      /BAO\\/?p=classes&conceptid=http%3A%2F%2Fwww.bioassayontology.org%2Fbao%23\"\
+      ],\"external_namespaces\":[\"bao\"]},{\"id\":\"29\",\"type\":null,\"role\":null,\"\
+      text\":\"time course\",\"category\":\"time\",\"in_caption\":\"N\"}],\"formatted_caption\"\
+      :\"<sd-panel><p>B) The figure shows the intracellular content of <sd-tag id=\\\
+      \"sdTag15\\\">P. gingivalis<\\/sd-tag> strains after 24 hours of infection.\
+      \ <sd-tag id=\\\"sdTag16\\\">MoDCs<\\/sd-tag> infected with <sd-tag id=\\\"\
+      sdTag17\\\">Pg381<\\/sd-tag> or isogenic mutants strains were lysed and the\
+      \ survived intracellular bacteria were re-suspended and maintained in anaerobic\
+      \ broth for 5 days. The data represents <sd-tag id=\\\"sdTag13\\\">CFU<\\/sd-tag>\
+      \ within <sd-tag id=\\\"sdTag18\\\">MoDCs<\\/sd-tag> harvested from three healthy\
+      \ <sd-tag id=\\\"sdTag14\\\">individuals<\\/sd-tag>. The means \xB1standard\
+      \ deviation (in triplicates) were analyzed by One-way ANOVA of different groups\
+      \ and Tukey's test for multiple group comparisons within 3 different experiments\
+      \ (* statistical significance at the p&lt;0.001).<\\/p><\\/sd-panel>\"}]}}"
+    content_type: text/plain; charset=utf-8
+    method: GET
+    status: 200
+    url: https://api.sourcedata.io/panel/13904

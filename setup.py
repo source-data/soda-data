@@ -43,6 +43,7 @@ if __name__ == "__main__":
                 "notebook",
                 "ipywidgets",
                 "plotly",
+                "responses==0.23.1",
             ],
             classifiers=[
                 # full list: https://pypi.org/pypi?%3Aaction=list_classifiers
