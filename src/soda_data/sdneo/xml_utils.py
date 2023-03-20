@@ -4,8 +4,8 @@ from typing import List, Union
 
 from lxml.etree import Element, XMLParser, fromstring, tostring
 
-from src.soda_data.common import logging
-from src.soda_data.sdneo import smartnode
+from ..common import logging
+from . import smartnode
 
 logging.configure_logging()
 logger = logging.get_logger(__name__)

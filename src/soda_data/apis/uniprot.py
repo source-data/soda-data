@@ -4,9 +4,9 @@ import requests
 from requests.models import Response
 from responses import _recorder
 
-from src.soda_data.apis import FROM, Service
-from src.soda_data.common import logging
-from src.soda_data.sdneo.api_utils import remove_whitespace
+from . import FROM, Service
+from ..common import logging
+from ..sdneo.api_utils import remove_whitespace
 
 logging.configure_logging()
 logger = logging.get_logger(__name__)

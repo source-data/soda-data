@@ -3,7 +3,7 @@ from typing import Callable, Dict, List, Tuple, Union
 
 from neo4j import GraphDatabase, Transaction
 
-from src.soda_data.common import logging
+from ..common import logging
 
 logging.configure_logging()
 logger = logging.get_logger(__name__)

@@ -186,7 +186,7 @@ conda activate soda-data
 2. Start your work on this branch. Don't forget to add [docstrings] to new
    functions, modules and classes, especially if they are part of public APIs.
 
-3. Add yourself to the list of contributors in `AUTHORS.rst`.
+3. Add yourself to the list of contributors in `AUTHORS.md`.
 
 4. When you’re done editing, do:
 

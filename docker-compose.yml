@@ -50,7 +50,7 @@ services:
     volumes: *volumes
     working_dir: /app
     ports:
-      - "5555:5555"
+      - "5560:5555"
     command: flower --app=soda_data --port=5555 --broker=rabbitmq
 
   rabbitmq:

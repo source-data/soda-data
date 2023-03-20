@@ -1,4 +1,4 @@
-from src.soda_data.sdneo.db import Query
+from .db import Query
 
 
 class GET_FIGURE_PROPERTIES(Query):

@@ -28,37 +28,26 @@ class Service:
         status_forcelist=(500, 502, 504),
         session=None,
     ):
-        """Creates a resilient session that will retry several times when a query fails.
-        from  https://www.peterbe.com/plog/best-practice-with-retries-with-requests
-        Parameters
-        ----------
-        retries : int, optional
-            As in [`urllib3.util.Retry`]
-            (https://urllib3.readthedocs.io/en/stable/reference/urllib3.util.
-            html#urllib3.util.Retry)
-        backoff_factor : float, optional
-            As in [`urllib3.util.Retry`]
-            (https://urllib3.readthedocs.io/en/stable/reference/urllib3.util.
-            html#urllib3.util.Retry)
-        status_forcelist : tuple, optional
-            As in [`urllib3.util.Retry`]
-            (https://urllib3.readthedocs.io/en/stable/reference/urllib3.util.
-            html#urllib3.util.Retry)
-        session : requests.Session, optional
-            If existing, a valid
-            [`requests.Session`]
-            (https://docs.python-requests.org/en/master/user/advanced/)
-            object.
-            If let to `None` it will create it.
-            Usage:
-            ```python
-            session_retry = self.requests_retry_session()
-            session_retry.headers.update({
-                "Accept": "application/json",
-                "From": "thomas.lemberger@embo.org"
-            })
-            response = session_retry.post(url, data=params, timeout=30)
-            ```
+        """
+        Creates a resilient session that will retry several times when a query fails. from  https://www.peterbe.com/plog/best-practice-with-retries-with-requests
+        Args:
+            retries (`int`, optionl):
+                As in [`urllib3.util.Retry`](https://urllib3.readthedocs.io/en/stable/reference/urllib3.util.html#urllib3.util.Retry)
+            backoff_factor (`float`, optional):
+                As in [`urllib3.util.Retry`](https://urllib3.readthedocs.io/en/stable/reference/urllib3.util.html#urllib3.util.Retry)
+            status_forcelist (`tuple`, optional):
+                As in [`urllib3.util.Retry`](https://urllib3.readthedocs.io/en/stable/reference/urllib3.util.html#urllib3.util.Retry)
+            session (`requests.Session`, optional):
+                If existing, a valid [`requests.Session`](https://docs.python-requests.org/en/master/user/advanced/) object. If let to `None` it will create it.
+        Usage:
+        ```python
+        session_retry = self.requests_retry_session()
+        session_retry.headers.update({
+            "Accept": "application/json",
+            "From": "thomas.lemberger@embo.org"
+        })
+        response = session_retry.post(url, data=params, timeout=30)
+        ```
         """
         session = session or requests.Session()
         retry = Retry(

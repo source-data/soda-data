@@ -2,8 +2,8 @@ import unittest
 
 import responses
 
-from src.soda_data.apis.epmc import EPMC
-from src.soda_data.sdneo.api_utils import ResilientRequests
+from soda_data.apis.epmc import EPMC
+from soda_data.sdneo.api_utils import ResilientRequests
 
 ARTICLE_DOI_LIST = ["10.15252/embr.201949956", "10.15252/embr.201845832"]
 ABSTRACT_LIST = [

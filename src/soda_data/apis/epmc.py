@@ -1,7 +1,7 @@
 from requests.models import Response
 
-from src.soda_data.apis import FROM, Service
-from src.soda_data.sdneo.api_utils import remove_whitespace
+from . import FROM, Service
+from ..sdneo.api_utils import remove_whitespace
 
 
 class EPMC(Service):

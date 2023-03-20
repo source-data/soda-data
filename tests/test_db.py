@@ -1,8 +1,8 @@
 import unittest
 
-from src.soda_data.sdneo import DB
-from src.soda_data.sdneo.db import quote4neo, to_string
-from src.soda_data.sdneo.queries import GET_LIST_OF_ARTICLES
+from soda_data.sdneo import DB
+from soda_data.sdneo.db import quote4neo, to_string
+from soda_data.sdneo.queries import GET_LIST_OF_ARTICLES
 
 PROPERTIES_1 = {"prop1": "value1"}
 PROPERTIES_2 = {"prop1": "value1", "prop2": 2}

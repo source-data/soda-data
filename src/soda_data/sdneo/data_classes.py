@@ -4,8 +4,7 @@ from typing import Dict, List, Union
 
 from bs4 import BeautifulSoup
 
-from src.soda_data.common import logging
-from src.soda_data.sdneo import smartnode
+from ..common import logging
 
 logger = logging.get_logger(__name__)
 
@@ -124,19 +123,6 @@ class FigureProperties(Properties):
 
     def __str__(self):
         return f'"{self.figure_label}" ({self.figure_id})'
-
-
-@dataclass
-class Relationship:
-    """Specifies the target of a directional typed relationship to another SmartNode"""
-
-    target: "smartnode.SmartNode"
-    rel_type: str = field(
-        default="",
-        metadata={
-            "help": "Type of the relationship between the source and the target nodes"
-        },
-    )
 
 
 @dataclass

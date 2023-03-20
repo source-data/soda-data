@@ -1,6 +1,6 @@
 from argparse import ArgumentParser
 
-from src.soda_data.sdneo.smartnode import Collection
+from .smartnode import Collection
 
 if __name__ == "__main__":
     parser = ArgumentParser(description="Download the SourceData xml tagged dataset.")

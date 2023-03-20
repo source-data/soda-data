@@ -5,23 +5,24 @@ from typing import List, Union
 from lxml.etree import Element, ElementTree, XMLSyntaxError, fromstring, tostring
 from tqdm import tqdm
 
-from src.soda_data.apis.epmc import EPMC
-from src.soda_data.common import logging
-from src.soda_data.sdneo import DB, SD_API_PASSWORD, SD_API_USERNAME
-from src.soda_data.sdneo.api_utils import ResilientRequests
-from src.soda_data.sdneo.data_classes import (
+from dataclasses import dataclass, field
+
+from ..apis.epmc import EPMC
+from ..common import logging
+from . import DB, SD_API_PASSWORD, SD_API_USERNAME
+from .api_utils import ResilientRequests
+from .data_classes import (
     ArticleDoiList,
     ArticleProperties,
     CollectionProperties,
     FigureProperties,
     PanelProperties,
     Properties,
-    Relationship,
     SourceDataAPIParser,
     TaggedEntityProperties,
 )
-from src.soda_data.sdneo.db import Instance
-from src.soda_data.sdneo.queries import (
+from .db import Instance
+from .queries import (
     GET_ARTICLE_PROPS,
     GET_FIGURE_PROPERTIES,
     GET_LIST_OF_ARTICLES,
@@ -32,10 +33,23 @@ from src.soda_data.sdneo.queries import (
     GET_PANEL_PROPERTIES,
     MERGE_COLLECTION,
 )
-from src.soda_data.sdneo.xml_utils import XMLSerializer, sorted_nicely
+from .xml_utils import XMLSerializer, sorted_nicely
 
 logging.configure_logging()
 logger = logging.get_logger(__name__)
+
+
+@dataclass
+class Relationship:
+    """Specifies the target of a directional typed relationship to another SmartNode"""
+
+    target: "SmartNode"
+    rel_type: str = field(
+        default="",
+        metadata={
+            "help": "Type of the relationship between the source and the target nodes"
+        },
+    )
 
 
 class SmartNode(ABC):

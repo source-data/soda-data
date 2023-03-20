@@ -7,8 +7,8 @@ import requests
 import responses
 from lxml.etree import XMLSyntaxError, fromstring
 
-from src.soda_data.sdneo.data_classes import ArticleProperties, PanelProperties
-from src.soda_data.sdneo.smartnode import Article, Collection, Figure, Panel
+from soda_data.sdneo.data_classes import ArticleProperties, PanelProperties
+from soda_data.sdneo.smartnode import Article, Collection, Figure, Panel
 
 STRING_RESPONSE = """Article "Porphyromonas gingivalis evasion of autophagy and intracellular killing by human myeloid dendritic cells involves DC-SIGN-TLR2 crosstalk." (10.1371/journal.ppat.1004647)\n-[has_figure]->\n  Figure "Fig 1" (4204)\n  -[has_panel]->\n    Panel "Fig 1-A" (13904)\n    -[has_entity]->\n      TaggedEntity \n        "Mfa1"\n        (\n            gene, intervention\n        )\n\n    -[has_entity]->\n      TaggedEntity \n        "FimA"\n        (\n            gene, intervention\n        )\n\n    -[has_entity]->\n      TaggedEntity \n        "MoDCs"\n        (\n            cell, assayed\n        )\n\n    -[has_entity]->\n      TaggedEntity \n        "MoDCs"\n        (\n            cell, assayed\n        )\n\n    -[has_entity]->\n      TaggedEntity \n        "P. gingivalis"\n        (\n            organism, component\n        )\n\n    -[has_entity]->\n      TaggedEntity \n        "Pg381"\n        (\n            organism, intervention\n        )\n\n    -[has_entity]->\n      TaggedEntity \n        "Transmission electron microscopy"\n        (\n            assay\n        )\n\n    -[has_entity]->\n      TaggedEntity \n        "time course"\n        (\n            time\n        )\n\n\n  -[has_panel]->\n    Panel "Fig 1-B" (13905)\n    -[has_entity]->\n      TaggedEntity \n        "CO2"\n        (\n            molecule, component\n        )\n\n    -[has_entity]->\n      TaggedEntity \n        "H2"\n        (\n            molecule, component\n        )\n\n    -[has_entity]->\n      TaggedEntity \n        "N2"\n        (\n            molecule, component\n        )\n\n    -[has_entity]->\n      TaggedEntity \n        "Mfa1"\n        (\n            gene, intervention\n        )\n\n    -[has_entity]->\n      TaggedEntity \n        "FimA"\n        (\n            gene, intervention\n        )\n\n    -[has_entity]->\n      TaggedEntity \n        "MoDCs"\n        (\n            cell, component\n        )\n\n    -[has_entity]->\n      TaggedEntity \n        "MoDCs"\n        (\n            cell, component\n        )\n\n    -[has_entity]->\n      TaggedEntity \n        "individuals"\n        (\n            organism, experiment\n        )\n\n    -[has_entity]->\n      TaggedEntity \n        "P. gingivalis"\n        (\n            organism, assayed\n        )\n\n    -[has_entity]->\n      TaggedEntity \n        "Pg381"\n        (\n            organism, intervention\n        )\n\n    -[has_entity]->\n      TaggedEntity \n        "CFU"\n        (\n            assay\n        )\n\n\n  -[has_panel]->\n    Panel "Fig 1-C" (13906)\n    -[has_entity]->\n      TaggedEntity \n        "CO2"\n        (\n            molecule, component\n        )\n\n    -[has_entity]->\n      TaggedEntity \n        "H2"\n        (\n            molecule, component\n        )\n\n    -[has_entity]->\n      TaggedEntity \n        "N2"\n        (\n            molecule, component\n        )\n\n    -[has_entity]->\n      TaggedEntity \n        "Mfa1"\n        (\n            gene, intervention\n        )\n\n    -[has_entity]->\n      TaggedEntity \n        "MoDCs"\n        (\n            cell, component\n        )\n\n    -[has_entity]->\n      TaggedEntity \n        "P. gingivalis"\n        (\n            organism, assayed\n        )\n\n    -[has_entity]->\n      TaggedEntity \n        "Pg381"\n        (\n            organism, intervention\n        )\n\n    -[has_entity]->\n      TaggedEntity \n        "CFU"\n        (\n            assay\n        )\n\n    -[has_entity]->\n      TaggedEntity \n        "Growth"\n        (\n            assay\n        )\n\n    -[has_entity]->\n      TaggedEntity \n        "time course"\n        (\n            time\n        )\n\n\n\n"""
 
@@ -53,7 +53,7 @@ class TestArticle(unittest.TestCase):
             )
             # Check right property class for article is set
             if article_json["doi"] != "empty":
-                self.assertTrue(isinstance(article.props, ArticleProperties))
+                self.assertTrue(type(article.props) == ArticleProperties)
                 self.assertEqual(article_json["nbFigures"], 1)
                 string_method = article.__str__()
                 self.assertEqual(string_method, STRING_RESPONSE)
@@ -76,7 +76,8 @@ class TestArticle(unittest.TestCase):
         self.assertEqual(article.from_neo("", ""), None)
 
     def test_overwrite(self):
-        os.mkdir("/app/xml_destination_files/")
+        if not os.path.isdir("/app/xml_destination_files/"):
+            os.mkdir("/app/xml_destination_files/")
         open("/app/xml_destination_files/10-1371_journal-ppat-1004647.xml", "a").close()
         article = Article(auto_save=True, overwrite=False)
         self.assertEqual(
