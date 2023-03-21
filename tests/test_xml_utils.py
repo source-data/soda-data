@@ -10,7 +10,7 @@ from soda_data.sdneo.xml_utils import XMLSerializer
 class TestXmlUtils(unittest.TestCase):
     @responses.activate
     def test_inner_text(self):
-        responses._add_from_file(file_path="/app/tests/responses/xml_utils.yaml")
+        responses._add_from_file(file_path="/app/tests/test_responses/xml_utils.yaml")
         # response = requests.get("https://api.sourcedata.io/collection/97/papers")
 
         panel = Panel()

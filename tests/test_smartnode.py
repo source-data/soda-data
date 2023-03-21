@@ -18,8 +18,8 @@ class TestCollection(unittest.TestCase):
     def test_from_sd_REST_API(self):
         """Test the from_sd_REST_API method."""
         collection = Collection(auto_save=False)
-        responses._add_from_file(file_path="/app/tests/responses/paper_list.yaml")
-        responses._add_from_file(file_path="/app/tests/responses/sd_collection.yaml")
+        responses._add_from_file(file_path="/app/tests/test_responses/paper_list.yaml")
+        responses._add_from_file(file_path="/app/tests/test_responses/sd_collection.yaml")
         _ = collection.from_sd_REST_API(collection_name="PUBLICSEARCH")
         self.assertEqual(asdict(collection.props)["collection_name"], "PUBLICSEARCH")
         self.assertEqual(
@@ -42,7 +42,7 @@ class TestArticle(unittest.TestCase):
     @responses.activate
     def test_from_sd_REST_API(self):
         """Test the from_sd_REST_API method."""
-        responses._add_from_file(file_path="/app/tests/responses/paper_list.yaml")
+        responses._add_from_file(file_path="/app/tests/test_responses/paper_list.yaml")
         response = requests.get("https://api.sourcedata.io/collection/97/papers")
         response_json = response.json()
         for article_json in response_json:
@@ -114,7 +114,7 @@ class TestPanel(unittest.TestCase):
     @responses.activate
     def test_from_sd_REST_API(self):
         """Test the from_sd_REST_API method."""
-        responses._add_from_file(file_path="/app/tests/responses/paper_list.yaml")
+        responses._add_from_file(file_path="/app/tests/test_responses/paper_list.yaml")
         panel = Panel()
         panel.from_sd_REST_API(panel_id="13904")
         self.assertTrue(isinstance(panel.props, PanelProperties))

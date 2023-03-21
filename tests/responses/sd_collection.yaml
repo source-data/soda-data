@@ -1,8 +1,0 @@
-responses:
-- response:
-    auto_calculate_content_length: false
-    body: '[{"collection_id":"97","name":"PUBLICSEARCH"}]'
-    content_type: text/plain
-    method: GET
-    status: 200
-    url: https://api.sourcedata.io/collection/PUBLICSEARCH
