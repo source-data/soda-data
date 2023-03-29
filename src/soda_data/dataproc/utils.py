@@ -2,6 +2,7 @@ import os
 import json
 from numpy.random import choice
 from typing import Dict, List, Optional
+import re
 from soda_data import XML_FOLDER, JSON_FOLDER
 
 SPLIT_FILE = os.path.join(JSON_FOLDER, "split.json")
@@ -37,3 +38,32 @@ def create_split(
         json.dump(split_dict, fp)
 
     return split_dict
+
+
+def innertext(xml) -> str:
+    """Extracts the text from an XML element
+
+    Args:
+        xml (`lxml.etree.Element`): XML element
+
+    Returns:
+        str: Text from the XML element
+    """
+    return "".join([t for t in xml.itertext()])
+
+
+def cleanup(text: str) -> str:
+    """
+    Cleans up a string. Following regex definitions
+
+    Args:
+        text (str): Text to be cleansed
+
+    Returns:
+        str: Cleansed text
+    """
+    text = re.sub(r'[\r\n\t]', ' ', text)
+    text = re.sub(r' +', ' ', text)
+    text = re.sub(r'[–—‐−]', '-', text)  # controversial!!!
+    text = re.sub(r'^[Aa]bstract', '', text)
+    return text

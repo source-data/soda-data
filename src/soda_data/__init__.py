@@ -16,8 +16,14 @@ finally:
     del version, PackageNotFoundError
 
 load_dotenv()
-CACHE = os.getenv("CACHE")
-DATA_FOLDER = os.getenv("DATA_FOLDER")
-XML_FOLDER = os.getenv("XML_FOLDER")
-JSON_FOLDER = os.getenv("JSON_FOLDER")
-TEST_FOLDER = os.getenv("TEST_FOLDER")
+CACHE = str(os.getenv("CACHE"))
+DATA_FOLDER = str(os.getenv("DATA_FOLDER"))
+XML_FOLDER = str(os.getenv("XML_FOLDER"))
+JSON_FOLDER = str(os.getenv("JSON_FOLDER"))
+TEST_FOLDER = str(os.getenv("TEST_FOLDER"))
+
+
+def create_folders():
+    for folder in [DATA_FOLDER, XML_FOLDER, JSON_FOLDER, TEST_FOLDER]:
+        if not os.path.exists(folder):
+            os.mkdir(folder)

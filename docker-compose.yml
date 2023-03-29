@@ -1,4 +1,4 @@
-version: '2.3'
+version: '3'
 
 services:
   nlp:
@@ -9,9 +9,9 @@ services:
       #   - user_id=${USER_ID}
       #   - group_id=${GROUP_ID}
     image: soda_data
-    depends_on:
-    - celery
-    - flower
+    # depends_on:
+    # - celery
+    # - flower
   #  runtime: nvidia
     deploy: &gpus
       resources:
@@ -30,34 +30,27 @@ services:
     working_dir: /app
     command: ["jupyter", "notebook", "--port=8888", "--ip=0.0.0.0", "--allow-root"]
 
-  celery:
-    image: soda_data
-    depends_on:
-    - rabbitmq
-    env_file:
-    - ./.env
-    volumes: *volumes
-    working_dir: /app
-    command: celery --app=soda_data worker --loglevel=info
+  neo4j:
+    image: neo4j:4.1
     environment:
-      - LC_ALL=C.UTF-8
-      - LANG=C.UTF-8
-
-  flower:
-    image: soda_data
-    depends_on:
-    - celery
-    volumes: *volumes
-    working_dir: /app
+      - NEO4JLABS_PLUGINS=["apoc", "graph-data-science"]
+      - NEO4J_AUTH=${NEO_USERNAME}/${NEO_PASSWORD}
+      # - EXTENSION_SCRIPT=/app/neo4j-init.sh
+    ulimits:
+      nofile:
+        soft: 40000
+        hard: 40000
+    volumes:
+      - ./data/neo4j-data:/data
+      - ./data/neo4j-logs:/logs
+      - ./data/neo4j-plugins:/plugins
+      - ./data/neo4j-import:/import
+    env_file:
+      - .env
     ports:
-      - "5560:5555"
-    command: flower --app=soda_data --port=5555 --broker=rabbitmq
-
-  rabbitmq:
-    image: rabbitmq:3-management
-    working_dir: /app
-    ports:
-      # The standard AMQP protocol port
-      - '5672:5672'
-      # HTTP management UI at http://localhost:15672/
-      - '15672:15672'
+      - "7480:7474"
+      - "7690:7687"
+  redis:
+    image: redis:6
+    volumes:
+      - ./data/redis-data:/data

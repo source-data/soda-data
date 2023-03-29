@@ -50,6 +50,25 @@ The download process might be as long as two days.
      python -m src.soda_data.sdneo.get_sd "/app/data/xml" --api sdapi
 ```
 
+
+## Run the tests
+
+```bash
+coverage run --source=src -m pytest --cov src/soda_data -v tests
+```
+
+```bash
+# Get the data from sd-graph
+docker-compose run --rm flask python -m sdg.sdneo PUBLICSEARCH --api sdapi  # import source data public data
+
+# Dump the data from sd-graph
+docker run --rm --name neo4j-dump --env-file .env --mount type=bind,source=$PWD/data/neo4j-data,target=/data --mount type=bind,source=$PWD/dumps,target=/dumps neo4j:4.1 bin/neo4j-admin dump --database=neo4j --to=/dumps/sourcedata_v0-0-0.db.dump.`date +%Y-%m-%d-%H.%M.%S`
+
+# Load data dump
+docker run --rm --name neo4j-load --env-file .env --mount type=bind,source=$PWD/data/neo4j-data,target=/data --mount type=bind,source=$PWD/dumps,target=/dumps -it neo4j:4.1 bin/neo4j-admin load --database=neo4j --from=/dumps/<dump_filename>
+
+```
+
 ## Note
 
 This project has been set up using PyScaffold 4.4. For details and usage

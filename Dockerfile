@@ -15,16 +15,18 @@ RUN apt-get update \
 && pip install transformers==4.20.0 \
 && pip install datasets==1.17.0 \
 && pip install seqeval==1.2.2 \
-&& pip install celery==5.0.5 \
-&& pip install flower==0.9.7 \
-&& pip install spacy==2.3.5 \
+# && pip install celery==5.0.5 \
+# && pip install flower==0.9.7 \
+# && pip install spacy==2.3.5 \
 && pip install lxml==4.6.2 \
 && pip install neo4j==4.1.1 \
-&& python -m spacy download en_core_web_sm \
-&& pip install ipywidgets \
+# && python -m spacy download en_core_web_sm \
+# && pip install ipywidgets \
 && pip install neotools==0.3.3
 # optional for plotting
-RUN pip install plotly
+# RUN pip install plotly
+WORKDIR /app
+RUN pip install -e .
 
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*1

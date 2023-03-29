@@ -13,4 +13,6 @@ NEO_URI = os.getenv("NEO_URI")
 NEO_USERNAME = os.getenv("NEO_USERNAME")
 NEO_PASSWORD = os.getenv("NEO_PASSWORD")
 
+HF_TOKEN = os.getenv("HF_TOKEN")
+
 DB = Instance(NEO_URI, NEO_USERNAME, NEO_PASSWORD)
