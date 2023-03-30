@@ -86,12 +86,15 @@ jobs:
       - name: Run tests
         run: scripts/run-tests.sh
       - name: Upload partial coverage report
-        uses: coverallsapp/github-action@master
+        uses: romeovs/lcov-reporter-action@v0.2.16
         with:
-          path-to-lcov: coverage.lcov
-          github-token: ${{ secrets.github_token }}
-          flag-name: ${{ matrix.platform }} - py${{ matrix.python }}
-          parallel: true
+          lcov-file: ./coverage/lcov.info
+        # uses: coverallsapp/github-action@master
+        # with:
+        #   path-to-lcov: coverage.lcov
+        #   github-token: ${{ secrets.github_token }}
+        #   flag-name: ${{ matrix.platform }} - py${{ matrix.python }}
+        #   parallel: true
 
   finalize:
     needs: test
