@@ -1,6 +1,7 @@
 import unittest
 
 import responses
+import yaml
 
 from soda_data.apis.epmc import EPMC
 from soda_data.sdneo.api_utils import ResilientRequests
@@ -14,6 +15,24 @@ ABSTRACT_LIST = [
 
 class TestEPMC(unittest.TestCase):
     """TEST EPMC API"""
+
+    def _parse_response_file(self, file_path) -> dict:
+        with open(file_path, "r") as file:
+            data = yaml.safe_load(file)
+        return data
+
+    def _add_from_file(self, file_path) -> None:
+        data = self._parse_response_file(file_path)
+        for rsp in data["responses"]:
+            rsp = rsp["response"]
+            responses.add(
+                method=rsp["method"],
+                url=rsp["url"],
+                body=rsp["body"],
+                status=rsp["status"],
+                content_type=rsp["content_type"],
+                auto_calculate_content_length=rsp["auto_calculate_content_length"],
+            )
 
     def test_get_abstract(self):
         """Test get_abstract"""
@@ -36,14 +55,14 @@ class TestEPMC(unittest.TestCase):
 
     @responses.activate
     def test_string_body(self):
-        responses._add_from_file("/app/tests/test_responses/uniprot.yaml")
+        self._add_from_file("/app/tests/test_responses/uniprot.yaml")
         rr = ResilientRequests(user="John", password="doe")
         self.assertEqual(rr.session_retry.auth, ("John", "doe"))
         rr.request("https://www.ebi.ac.uk/try_string_as_response")
 
     @responses.activate
     def test_bad_request(self):
-        responses._add_from_file("/app/tests/test_responses/uniprot.yaml")
+        self._add_from_file("/app/tests/test_responses/uniprot.yaml")
         rr = ResilientRequests(user="John", password="doe")
         self.assertEqual(rr.session_retry.auth, ("John", "doe"))
         rr.request("https://www.ebi.ac.uk/bad_request")

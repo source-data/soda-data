@@ -3,6 +3,7 @@ import unittest
 import requests
 import responses
 from requests.models import Response
+import yaml
 
 from soda_data.apis.uniprot import Uniprot
 
@@ -11,6 +12,23 @@ PROTEIN_FUNCTION = """Multifunctional protein involved in the transcription and 
 
 class TestUniprot(unittest.TestCase):
     """Test the Uniprot API."""
+    def _parse_response_file(self, file_path) -> dict:
+        with open(file_path, "r") as file:
+            data = yaml.safe_load(file)
+        return data
+
+    def _add_from_file(self, file_path) -> None:
+        data = self._parse_response_file(file_path)
+        for rsp in data["responses"]:
+            rsp = rsp["response"]
+            responses.add(
+                method=rsp["method"],
+                url=rsp["url"],
+                body=rsp["body"],
+                status=rsp["status"],
+                content_type=rsp["content_type"],
+                auto_calculate_content_length=rsp["auto_calculate_content_length"],
+            )
 
     def test_get_protein_function(self):
         """Test get_protein_function"""
@@ -60,15 +78,15 @@ class TestUniprot(unittest.TestCase):
     def test_bad_accession_list_1(self):
         uniprot = Uniprot()
         with self.assertRaises(TypeError):
-            uniprot._search(accession=123)
+            uniprot._search(accession=123)  # type: ignore
         with self.assertRaises(TypeError):
-            uniprot._search(accession=[123, 123])
+            uniprot._search(accession=[123, 123])  # type: ignore
         with self.assertRaises(TypeError):
-            uniprot._search(accession={"P0DTC1": "P0DTC1"})
+            uniprot._search(accession={"P0DTC1": "P0DTC1"})  # type: ignore
 
     @responses.activate
     def test_try_a_series_of_invokes(self):
-        responses._add_from_file("/app/tests/test_responses/uniprot.yaml")
+        self._add_from_file("/app/tests/test_responses/uniprot.yaml")
         uniprot = Uniprot()
         accessions = ["P34152", "P34153", "P34157", "P0DTC1"]
         results = {

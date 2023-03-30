@@ -2,7 +2,6 @@ from typing import List, Union
 
 import requests
 from requests.models import Response
-from responses import _recorder
 
 from . import FROM, Service
 from ..common import logging
@@ -53,7 +52,6 @@ class Uniprot(Service):
         else:
             raise TypeError("Accession must be a string or a list of strings")
 
-    @_recorder.record(file_path="/app/tests/responses/uniprot.yaml")
     def _generate_test_response(self, accession: List[str]) -> None:
         """Generate the yaml file for the tests."""
         self._search(accession)

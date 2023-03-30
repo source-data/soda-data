@@ -26,7 +26,6 @@ RUN apt-get update \
 # optional for plotting
 # RUN pip install plotly
 WORKDIR /app
-RUN pip install -e .
 
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*1

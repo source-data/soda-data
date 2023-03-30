@@ -54,6 +54,11 @@ The download process might be as long as two days.
 ## Run the tests
 
 ```bash
+pip install -e .
+pip install responses==0.23.0 --no-dependencies
+```
+
+```bash
 coverage run --source=src -m pytest --cov src/soda_data -v tests
 ```
 

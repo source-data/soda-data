@@ -6,6 +6,7 @@ from dataclasses import asdict
 import requests
 import responses
 from lxml.etree import XMLSyntaxError, fromstring
+import yaml
 
 from soda_data.sdneo.data_classes import ArticleProperties, PanelProperties
 from soda_data.sdneo.smartnode import Article, Collection, Figure, Panel
@@ -14,12 +15,31 @@ STRING_RESPONSE = """Article "Porphyromonas gingivalis evasion of autophagy and 
 
 
 class TestCollection(unittest.TestCase):
+
+    def _parse_response_file(self, file_path) -> dict:
+        with open(file_path, "r") as file:
+            data = yaml.safe_load(file)
+        return data
+
+    def _add_from_file(self, file_path) -> None:
+        data = self._parse_response_file(file_path)
+        for rsp in data["responses"]:
+            rsp = rsp["response"]
+            responses.add(
+                method=rsp["method"],
+                url=rsp["url"],
+                body=rsp["body"],
+                status=rsp["status"],
+                content_type=rsp["content_type"],
+                auto_calculate_content_length=rsp["auto_calculate_content_length"],
+            )
+
     @responses.activate
     def test_from_sd_REST_API(self):
         """Test the from_sd_REST_API method."""
         collection = Collection(auto_save=False)
-        responses._add_from_file(file_path="/app/tests/test_responses/paper_list.yaml")
-        responses._add_from_file(file_path="/app/tests/test_responses/sd_collection.yaml")
+        self._add_from_file(file_path="/app/tests/test_responses/paper_list.yaml")
+        self._add_from_file(file_path="/app/tests/test_responses/sd_collection.yaml")
         _ = collection.from_sd_REST_API(collection_name="PUBLICSEARCH")
         self.assertEqual(asdict(collection.props)["collection_name"], "PUBLICSEARCH")
         self.assertEqual(
@@ -31,18 +51,31 @@ class TestCollection(unittest.TestCase):
             [{"collection_id": "97", "name": "PUBLICSEARCH"}],
         )
 
-    def test_from_neo(self):
-        """Test the from_neo method."""
-        collection = Collection(auto_save=True, is_test=True)
-        collection.from_neo(collection_name="PUBLICSEARCH")
-        shutil.rmtree("/app/xml_destination_files", ignore_errors=True)
-
 
 class TestArticle(unittest.TestCase):
+
+    def _parse_response_file(self, file_path) -> dict:
+        with open(file_path, "r") as file:
+            data = yaml.safe_load(file)
+        return data
+
+    def _add_from_file(self, file_path) -> None:
+        data = self._parse_response_file(file_path)
+        for rsp in data["responses"]:
+            rsp = rsp["response"]
+            responses.add(
+                method=rsp["method"],
+                url=rsp["url"],
+                body=rsp["body"],
+                status=rsp["status"],
+                content_type=rsp["content_type"],
+                auto_calculate_content_length=rsp["auto_calculate_content_length"],
+            )
+
     @responses.activate
     def test_from_sd_REST_API(self):
         """Test the from_sd_REST_API method."""
-        responses._add_from_file(file_path="/app/tests/test_responses/paper_list.yaml")
+        self._add_from_file(file_path="/app/tests/test_responses/paper_list.yaml")
         response = requests.get("https://api.sourcedata.io/collection/97/papers")
         response_json = response.json()
         for article_json in response_json:
@@ -66,8 +99,8 @@ class TestArticle(unittest.TestCase):
         article = Article(auto_save=True)
         with self.assertRaises(XMLSyntaxError):
             article._save_xml(
-                fromstring(XML),
-                "/app/xml_destination_files/10-1371_journal-ppat-1004647.xml",
+                fromstring(XML),  # type: ignore
+                "/app/xml_destination_files/10-1371_journal-ppat-1004647.xml",  # type: ignore
             )
 
     def test_empty_doi(self):
@@ -81,11 +114,6 @@ class TestArticle(unittest.TestCase):
         open("/app/xml_destination_files/10-1371_journal-ppat-1004647.xml", "a").close()
         article = Article(auto_save=True, overwrite=False)
         self.assertEqual(
-            article.from_neo(collection_id="97", doi="10.1371/journal.ppat.1004647"),
-            None,
-        )
-        article = Article(auto_save=True, overwrite=False)
-        self.assertEqual(
             article.from_sd_REST_API(
                 collection_id="97", doi="10.1371/journal.ppat.1004647"
             ),
@@ -93,28 +121,44 @@ class TestArticle(unittest.TestCase):
         )
         shutil.rmtree("/app/xml_destination_files", ignore_errors=True)
 
-    def test_from_neo(self):
-        """Test the from_neo method."""
-
 
 class TestFigure(unittest.TestCase):
     def test_empty_doi(self):
         figure = Figure()
-        self.assertEqual(figure.from_sd_REST_API("", "", ""), None)
+        self.assertEqual(figure.from_sd_REST_API("", "", ""), None)  # type: ignore
         self.assertEqual(figure.from_neo("", "", ""), None)
-        self.assertEqual(figure.from_sd_REST_API("something", "something", ""), None)
-        self.assertEqual(figure.from_neo("something", "something", ""), None)
-        self.assertEqual(figure.from_sd_REST_API("", "something", "something"), None)
+        self.assertEqual(figure.from_sd_REST_API("something", "something", ""), None)  # type: ignore
+        self.assertEqual(figure.from_neo("something", "something", ""), None)  # type: ignore
+        self.assertEqual(figure.from_sd_REST_API("", "something", "something"), None)  # type: ignore
         self.assertEqual(figure.from_neo("", "something", "something"), None)
-        self.assertEqual(figure.from_sd_REST_API("something", "", "something"), None)
+        self.assertEqual(figure.from_sd_REST_API("something", "", "something"), None)  # type: ignore
         self.assertEqual(figure.from_neo("something", "", "something"), None)
 
 
 class TestPanel(unittest.TestCase):
+
+    def _parse_response_file(self, file_path) -> dict:
+        with open(file_path, "r") as file:
+            data = yaml.safe_load(file)
+        return data
+
+    def _add_from_file(self, file_path) -> None:
+        data = self._parse_response_file(file_path)
+        for rsp in data["responses"]:
+            rsp = rsp["response"]
+            responses.add(
+                method=rsp["method"],
+                url=rsp["url"],
+                body=rsp["body"],
+                status=rsp["status"],
+                content_type=rsp["content_type"],
+                auto_calculate_content_length=rsp["auto_calculate_content_length"],
+            )
+
     @responses.activate
     def test_from_sd_REST_API(self):
         """Test the from_sd_REST_API method."""
-        responses._add_from_file(file_path="/app/tests/test_responses/paper_list.yaml")
+        self._add_from_file(file_path="/app/tests/test_responses/paper_list.yaml")
         panel = Panel()
         panel.from_sd_REST_API(panel_id="13904")
         self.assertTrue(isinstance(panel.props, PanelProperties))

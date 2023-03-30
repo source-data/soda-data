@@ -69,7 +69,7 @@ class SmartNode(ABC):
         self.ephemeral = ephemeral
         self.auto_save = True
 
-    def to_xml(self, *args) -> Element:
+    def to_xml(self, *args) -> Element:  # type: ignore
         """Serializes the object and its descendents as xml file"""
         raise NotImplementedError
 
@@ -100,7 +100,7 @@ class SmartNode(ABC):
         filepath = dest_dir / filename
         return filepath
 
-    def _save_xml(self, xml_element: Element, filepath: Path) -> str:
+    def _save_xml(self, xml_element: Element, filepath: Path) -> str:  # type: ignore
         """Saves the xml element to a file"""
         if not isinstance(filepath, str):
             filepath_str: str = filepath.as_posix()
@@ -108,7 +108,7 @@ class SmartNode(ABC):
             filepath_str = filepath
         try:
             # xml validation before written file.
-            fromstring(tostring(xml_element))
+            fromstring(tostring(xml_element))  # type: ignore
             logger.info(f"writing to {filepath_str}")
             ElementTree(xml_element).write(
                 filepath_str, encoding="utf-8", xml_declaration=True
@@ -345,6 +345,7 @@ class Article(SmartNode):
                 get_figure_list = GET_LIST_OF_FIGURES(
                     params={"doi": doi, "collection_name": collection_id}
                 )
+
                 figure_list = set(DB.query(get_figure_list)[0].data()["figure_list"])
                 figure_list_ordered = [x for x in sorted_nicely(figure_list)]
                 for idx in tqdm(figure_list_ordered, desc="figures ", leave=False):
@@ -459,6 +460,7 @@ class Figure(SmartNode):
                     "figure_index": figure_index,
                 }
             )
+
             panel_list = DB.query(get_panel_list)[0].data()["panel_list"]
 
             panels = []

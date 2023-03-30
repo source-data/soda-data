@@ -84,7 +84,7 @@ class TestXMLExtractor(unittest.TestCase):
             xml_extractor = XMLExtractor(xml_data="my_bad_path", xpath=".//sd-panel", split_dict=SPLIT_DICT_TEST)
             xml_extractor._get_file_list()
         with self.assertRaises(ValueError):
-            xml_extractor = XMLExtractor(xml_data=42, xpath=".//sd-panel", split_dict=SPLIT_DICT_TEST)
+            xml_extractor = XMLExtractor(xml_data=42, xpath=".//sd-panel", split_dict=SPLIT_DICT_TEST)  # type: ignore
             xml_extractor._get_file_list()
 
     def test_parse_xml_file(self):
@@ -204,7 +204,7 @@ class TestTokenClassification(unittest.TestCase):
 
         count_entity = 0
         count_mask = 0
-        for entity, mask in zip(ds["train"]["labels"], ds["train"]["tag_mask"]):
+        for entity, mask in zip(ds["train"]["labels"], ds["train"]["is_category"]):
             if entity != "O":
                 count_entity += 1
             if mask:
@@ -369,4 +369,4 @@ class TestSemanticRoles(unittest.TestCase):
         for i in range(18):
             self.assertEqual(len(ds["validation"]["words"][i]), len(ds["validation"]["labels"][i]))
             self.assertEqual(len(ds["train"]["words"][i]), len(ds["train"]["labels"][i]))
-            self.assertEqual(len(ds["train"]["words"][i]), len(ds["train"]["tag_mask"][i]))
+            self.assertEqual(len(ds["train"]["words"][i]), len(ds["train"]["is_category"][i]))

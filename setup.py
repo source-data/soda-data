@@ -29,14 +29,15 @@ if __name__ == "__main__":
             install_requires=[
                 "torch",
                 "transformers==4.20",
-                "datasets==2.10.0",
+                "datasets~=2.10.0",
                 "nltk",
                 "scikit-learn",
                 "python-dotenv",
                 "seqeval",
                 "lxml",
                 "neo4j",
-                "responses==0.18.0",
+                "responses<0.19",
+                "py2neo==2021.2.3"
             ],
             classifiers=[
                 # full list: https://pypi.org/pypi?%3Aaction=list_classifiers
