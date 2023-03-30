@@ -2,10 +2,15 @@ from py2neo import Graph
 import shutil
 import unittest
 from soda_data.sdneo.smartnode import Article, Collection
+import os
 
-NEO_URI = "bolt://neo4j:7687"
-NEO_USERNAME = "neo4j"
-NEO_PASSWORD = "pw_sourcedata"
+from dotenv import load_dotenv
+
+
+load_dotenv()
+NEO_URI = os.getenv("NEO_URI")
+NEO_USERNAME = os.getenv("NEO_USERNAME")
+NEO_PASSWORD = os.getenv("NEO_PASSWORD")
 
 
 class TestCollection(unittest.TestCase):
