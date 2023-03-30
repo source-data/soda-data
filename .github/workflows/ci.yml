@@ -85,26 +85,21 @@ jobs:
       #   run: pipx run coverage lcov -o coverage.lcov
       - name: Run tests
         run: scripts/run-tests.sh
-      - name: Upload partial coverage report
-        uses: romeovs/lcov-reporter-action@v0.2.16
-        with:
-          lcov-file: ./coverage/lcov.info
-        # uses: coverallsapp/github-action@master
-        # with:
-        #   path-to-lcov: coverage.lcov
-        #   github-token: ${{ secrets.github_token }}
-        #   flag-name: ${{ matrix.platform }} - py${{ matrix.python }}
-        #   parallel: true
 
   finalize:
     needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Finalize coverage report
-        uses: coverallsapp/github-action@master
+        uses: schneegans/dynamic-badges-action@v1.0.0
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          parallel-finished: true
+          auth: ${{ secrets.GIST_SECRET }}
+          gistID: 5cad2a2e73730a10b66bffe6976b3db2
+          filename: coverage.lcov
+          label: Test Coverage
+          message: ${{ env.COVERAGE }}
+          color: green
+          namedLogo: coverage
 
   # publish:
   #   needs: finalize
