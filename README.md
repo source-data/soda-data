@@ -17,6 +17,9 @@
 <!-- [![Conda-Forge](https://img.shields.io/conda/vn/conda-forge/soda-data.svg)](https://anaconda.org/conda-forge/soda-data) -->
 <!-- [![Monthly Downloads](https://pepy.tech/badge/soda-data/month)](https://pepy.tech/project/soda-data) -->
 <!-- [![Twitter](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&label=Twitter)](https://twitter.com/soda-data) -->
+[![tests](https://github.com/source-data/soda-data/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/source-data/soda-data/actions/workflows/ci.yml)
+[![license](https://img.shields.io/badge/License-MIT-purple.svg)](LICENSE)
+![Coverage Badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/drAbreu/5cad2a2e73730a10b66bffe6976b3db2/raw/source-data/soda-data/__pull_##.json)
 
 # SourceData Dataset
 
