@@ -7,7 +7,7 @@ set -o nounset
 # output the docker-compose version for debugging
 docker-compose --version
 
-env_file=.env.example
+env_file=.env
 echo "Setting up environment variables from $env_file"
 set -o allexport
 source "$env_file"

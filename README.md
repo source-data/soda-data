@@ -20,9 +20,25 @@
 
 # SourceData Dataset
 
-> The Source Data dataset: a biological annotated dataset for machine learning and AI in the publishing context.
+> The largest annotated biomedical corpus for machine learning and AI in the publishing context.
 
-A longer description of your project goes here...
+SourceData is the largest annotated biomedical dataset for NER and NEL.
+It is unique on its focus on the core of scientific evidence:
+figure captions. It is also unique on its real-world configuration, since it does not
+present isolated sentences out of more general context. It offers full annotated figure
+captions that can be further enriched in context using full text, abstracts, or titles.
+The goal is to extract the nature of the experiments on them described.
+SourceData presents also its uniqueness by labelling the causal relationship
+between biological entities present in experiments, assigning experimental roles
+to each biomedical entity present in the corpus.
+
+SourceData consistently annotates
+nine different biological entities (genes, proteins, cells, tissues,
+subcellular components, species, small molecules, and diseases). It is
+the first dataset annotating experimental assays
+and the roles played on them by the biological entities.
+Each entity is linked to their correspondent ontology, allowing
+for entity disambiguation and NEL.
 
 <!-- pyscaffold-notes -->
 
