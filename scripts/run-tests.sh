@@ -42,5 +42,6 @@ END_HEREDOC
 docker-compose exec -T neo4j bash -c "$wait_for_neo4j"
 
 echo "Running tests"
+docker-compose exec -T nlp pip install -e .
 docker-compose exec -T nlp coverage run --source=src -m pytest --cov src/soda_data -v tests
 docker-compose exec -T nlp coverage lcov -o coverage.lcov

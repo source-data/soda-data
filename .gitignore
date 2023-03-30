@@ -59,3 +59,5 @@ data
 dist
 log/
 *__pycache__*
+
+*.lcov

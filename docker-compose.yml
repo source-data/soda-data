@@ -9,15 +9,6 @@ services:
       #   - user_id=${USER_ID}
       #   - group_id=${GROUP_ID}
     image: soda_data
-    # depends_on:
-    # - celery
-    # - flower
-  #  runtime: nvidia
-    deploy: &gpus
-      resources:
-        reservations:
-          devices:
-            - capabilities: [gpu]
     volumes: &volumes
     - .:/app
     - ./data:/data

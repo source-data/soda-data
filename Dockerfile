@@ -22,10 +22,10 @@ RUN apt-get update \
 && pip install neo4j==4.1.1 \
 # && python -m spacy download en_core_web_sm \
 # && pip install ipywidgets \
-&& pip install neotools==0.3.3
+&& pip install neotools==0.3.3 \
+&& pip install responses==0.18.0
 # optional for plotting
 # RUN pip install plotly
-WORKDIR /app
 
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*1
