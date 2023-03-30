@@ -12,10 +12,13 @@ on:
     tags: ['v[0-9]*', '[0-9]+.[0-9]+*']  # Match tags that resemble a version
   pull_request:  # Run in every PR
   workflow_dispatch:  # Allow manually triggering the workflow
-  schedule:
+  # schedule:
     # Run roughly every 15 days at 00:00 UTC
     # (useful to check if updates on dependencies break the package)
-    - cron: '0 0 1,16 * *'
+    # - cron: '0 0 1,16 * *'
+
+permissions:
+  contents: read
 
 concurrency:
   group: >-
@@ -33,7 +36,7 @@ jobs:
         with: {fetch-depth: 0}  # deep clone for setuptools-scm
       - uses: actions/setup-python@v4
         id: setup-python
-        with: {python-version: "3.11"}
+        with: {python-version: "3.8"}
       - name: Run static analysis and format checkers
         run: pipx run pre-commit run --all-files --show-diff-on-failure
       - name: Build package distribution files
@@ -73,13 +76,15 @@ jobs:
         with: {name: python-distribution-files, path: dist/}
       - name: Copy environment file
         run: cp .env.example .env
+      # - name: Run tests
+      #   run: >-
+      #     pipx run --python '${{ steps.setup-python.outputs.python-path }}'
+      #     tox --installpkg '${{ needs.prepare.outputs.wheel-distribution }}'
+      #     -- -rFEx --durations 10 --color yes  # pytest args
+      # - name: Generate coverage report
+      #   run: pipx run coverage lcov -o coverage.lcov
       - name: Run tests
-        run: >-
-          pipx run --python '${{ steps.setup-python.outputs.python-path }}'
-          tox --installpkg '${{ needs.prepare.outputs.wheel-distribution }}'
-          -- -rFEx --durations 10 --color yes  # pytest args
-      - name: Generate coverage report
-        run: pipx run coverage lcov -o coverage.lcov
+        run: scripts/run-tests.sh
       - name: Upload partial coverage report
         uses: coverallsapp/github-action@master
         with:
