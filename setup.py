@@ -37,7 +37,8 @@ if __name__ == "__main__":
                 "lxml",
                 "neo4j",
                 "responses<0.19",
-                "py2neo==2021.2.3"
+                "py2neo==2021.2.3",
+                "beautifulsoup4==4.10.0"
             ],
             classifiers=[
                 # full list: https://pypi.org/pypi?%3Aaction=list_classifiers
