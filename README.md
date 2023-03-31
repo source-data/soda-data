@@ -19,13 +19,9 @@
     <a href="https://www.codefactor.io/repository/github/source-data/soda-data">
         <img alt="CodeFactor" src="https://www.codefactor.io/repository/github/source-data/soda-data/badge">
     </a>
-    <a href="https://github.com/huggingface/transformers/releases">
-        <img alt="GitHub release" src="https://img.shields.io/github/release/huggingface/transformers.svg">
+    <a href="https://huggingface.co/EMBO">
+        <img alt="GitHub release" src="https://img.shields.io/badge/%F0%9F%A4%97HuggingFace-Join-yellow">
     </a>
-    <a href="https://github.com/huggingface/transformers/blob/main/CODE_OF_CONDUCT.md">
-        <img alt="Contributor Covenant" src="https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg">
-    </a>
-    <a href="https://zenodo.org/badge/latestdoi/155220641"><img src="https://zenodo.org/badge/155220641.svg" alt="DOI"></a>
 </p>
 # SourceData Dataset
 
