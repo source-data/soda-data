@@ -79,10 +79,10 @@ jobs:
       - name: Run tests
         run: scripts/run-tests.sh
 
-  finalize:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
+  # finalize:
+  #   needs: test
+  #   runs-on: ubuntu-latest
+  #   steps:
     # steps:
     #   - uses: actions/checkout@v3
       # - name: Upload partial coverage report
