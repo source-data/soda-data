@@ -98,7 +98,7 @@ jobs:
       - name: Upload partial coverage report
         uses: coverallsapp/github-action@master
         with:
-          path-to-lcov: coverage.lcov
+          path-to-lcov: data/coverage.lcov
           github-token: ${{ secrets.github_token }}
           flag-name: ${{ matrix.platform }} - py${{ matrix.python }}
           parallel: true

@@ -20,8 +20,7 @@ if __name__ == "__main__":
             python_requires=">=3.8",
             author="Source Data",
             author_email="source_data@embo.org",
-            description="""The Source Data dataset: a biological annotated
-                dataset for machine learning and AI in the publishing context.""",
+            description="""The largest annotated biomedical corpus for machine learning and AI in the publishing context.""",
             long_description=long_description,
             long_description_content_type="text/markdown",
             url="https://github.com/source-data/soda-data",

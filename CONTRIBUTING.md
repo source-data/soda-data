@@ -1,33 +1,7 @@
-```{todo} THIS IS SUPPOSED TO BE AN EXAMPLE. MODIFY IT ACCORDING TO YOUR NEEDS!
-
-   The document assumes you are using a source repository service that promotes a
-   contribution model similar to [GitHub's fork and pull request workflow].
-   While this is true for the majority of services (like GitHub, GitLab,
-   BitBucket), it might not be the case for private repositories (e.g., when
-   using Gerrit).
-
-   Also notice that the code examples might refer to GitHub URLs or the text
-   might use GitHub specific terminology (e.g., *Pull Request* instead of *Merge
-   Request*).
-
-   Please make sure to check the document having these assumptions in mind
-   and update things accordingly.
-```
-
-```{todo} Provide the correct links/replacements at the bottom of the document.
-```
-
-```{todo} You might want to have a look on [PyScaffold's contributor's guide],
-
-   especially if your project is open source. The text should be very similar to
-   this template, but there are a few extra contents that you might decide to
-   also include, like mentioning labels of your issue tracker or automated
-   releases.
-```
-
 # Contributing
 
 Welcome to `soda-data` contributor's guide.
+**This guide is inspired by the [🤗 contribution guide](https://github.com/huggingface/transformers/blob/main/CONTRIBUTING.md)**
 
 This document focuses on getting any potential contributor familiarized with
 the development processes, but [other kinds of contributions] are also appreciated.
@@ -40,6 +14,14 @@ Please notice, all users and contributors are expected to be **open,
 considerate, reasonable, and respectful**. When in doubt,
 [Python Software Foundation's Code of Conduct] is a good reference in terms of
 behavior guidelines.
+
+## Ways to contribute
+
+The main contributing ways to SODA-data are listed below:
+
+* Fix outstanding issues with the existing code.
+* Submit issues related to bugs or desired new features.
+* Implement new AI ready-to-go datasets.
 
 ## Issue Reports
 
@@ -59,6 +41,15 @@ Please try also to simplify the reproduction steps to a very minimal example
 that still illustrates the problem you are facing. By removing other factors,
 you help us to identify the root cause of the issue.
 
+## Do you want to use SourceData but you do not find your ready-to-use dataset?
+
+Open an issue and get in contact with us. We will support you.
+
+> If you have generated a new ready to go dataset using SourceData, please contact us through the
+> issue tracker to add your implementation to the supported data.
+
+For that, fork the repository, add your changes and open a pull request.
+
 ## Documentation Improvements
 
 You can help improve `soda-data` docs by making them more readable and coherent, or
@@ -67,29 +58,6 @@ by adding missing information and correcting mistakes.
 `soda-data` documentation uses [Sphinx] as its main documentation compiler.
 This means that the docs are kept in the same repository as the project code, and
 that any documentation update is done in the same way was a code contribution.
-
-```{todo} Don't forget to mention which markup language you are using.
-
-    e.g.,  [reStructuredText] or [CommonMark] with [MyST] extensions.
-```
-
-```{todo} If your project is hosted on GitHub, you can also mention the following tip:
-
-   :::{tip}
-      Please notice that the [GitHub web interface] provides a quick way of
-      propose changes in `soda-data`'s files. While this mechanism can
-      be tricky for normal code contributions, it works perfectly fine for
-      contributing to the docs, and can be quite handy.
-
-      If you are interested in trying this method out, please navigate to
-      the `docs` folder in the source [repository], find which file you
-      would like to propose changes and click in the little pencil icon at the
-      top, to open [GitHub's code editor]. Once you finish editing the file,
-      please write a message in the form at the bottom of the page describing
-      which changes have you made and what are the motivations behind them and
-      submit your proposal.
-   :::
-```
 
 When working on documentation changes in your local machine, you can
 compile them using [tox] :
@@ -107,12 +75,10 @@ python3 -m http.server --directory 'docs/_build/html'
 
 ## Code Contributions
 
-```{todo} Please include a reference or explanation about the internals of the project.
+We wellcome any code contributions.
 
-   An architecture description, design principles or at least a summary of the
-   main concepts will make it easy for potential contributors to get started
-   quickly.
-```
+* If you want to add an API connection, add a  file `your_api.py` to `soda_data.apis`
+* If you want to add a new fine-tuning task, add a file `your_task.py` to `soda_data.dataproc`
 
 ### Submit an issue
 
@@ -197,9 +163,6 @@ conda activate soda-data
 
    to record your changes in [git].
 
-   ```{todo} if you are not using pre-commit, please remove the following item:
-   ```
-
    Please make sure to see the validation messages from [pre-commit] and fix
    any eventual issues.
    This should automatically use [flake8]/[black] to check/fix the code style
@@ -241,13 +204,11 @@ conda activate soda-data
 2. Go to the web page of your fork and click "Create pull request"
    to send your changes for review.
 
-   ```{todo} if you are using GitHub, you can uncomment the following paragraph
 
-      Find more detailed information in [creating a PR]. You might also want to open
-      the PR as a draft first and mark it as ready for review after the feedbacks
-      from the continuous integration (CI) system or any required fixes.
+   Find more detailed information in [creating a PR]. You might also want to open
+   the PR as a draft first and mark it as ready for review after the feedbacks
+   from the continuous integration (CI) system or any required fixes.
 
-   ```
 
 ### Troubleshooting
 
@@ -302,9 +263,9 @@ package:
    running `tox -- -k <NAME OF THE FALLING TEST> --pdb`).
    You can also setup breakpoints manually instead of using the `--pdb` option.
 
-## Maintainer tasks
+<!-- ## Maintainer tasks -->
 
-### Releases
+<!-- ### Releases
 
 ```{todo} This section assumes you are using PyPI to publicly release your package.
 
@@ -365,7 +326,7 @@ on [PyPI], the following steps can be used to release a new version for
 
 
 ```{todo} Please review and change the following definitions:
-```
+``` -->
 
-[repository]: https://github.com/<USERNAME>/soda-data
-[issue tracker]: https://github.com/<USERNAME>/soda-data/issues
+[repository]: https://github.com/source-data/soda-data
+[issue tracker]: https://github.com/source-data/soda-data/issues

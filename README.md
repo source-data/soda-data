@@ -11,7 +11,7 @@
 -->
 
 <!-- [![Built Status](https://api.cirrus-ci.com/github/<USER>/soda-data.svg?branch=main)](https://cirrus-ci.com/github/<USER>/soda-data)
-[![ReadTheDocs](https://readthedocs.org/projects/soda-data/badge/?version=latest)](https://soda-data.readthedocs.io/en/stable/)-->
+[![ReadTheDocs](https://readthedocs.org/projects/soda-data/badge/?version=latest)](https://soda-data.readthedocs.io/en/stable/) -->
 [![Coveralls](https://img.shields.io/coveralls/github/drAbreu/soda-data/main.svg)](https://coveralls.io/r/drAbreu/soda-data)
 [![tests](https://github.com/source-data/soda-data/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/source-data/soda-data/actions/workflows/ci.yml)
 [![license](https://img.shields.io/badge/License-MIT-purple.svg)](LICENSE)
@@ -20,9 +20,6 @@
 <!-- [![Conda-Forge](https://img.shields.io/conda/vn/conda-forge/soda-data.svg)](https://anaconda.org/conda-forge/soda-data) -->
 <!-- [![Monthly Downloads](https://pepy.tech/badge/soda-data/month)](https://pepy.tech/project/soda-data) -->
 <!-- [![Twitter](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&label=Twitter)](https://twitter.com/soda-data) -->
-[![tests](https://github.com/source-data/soda-data/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/source-data/soda-data/actions/workflows/ci.yml)
-[![license](https://img.shields.io/badge/License-MIT-purple.svg)](LICENSE)
-![Coverage Badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/drAbreu/5cad2a2e73730a10b66bffe6976b3db2/raw/source-data/soda-data/__pull_##.json)
 
 # SourceData Dataset
 
@@ -88,9 +85,33 @@ There are to ways to do so:
      1. Using your own SourceData API account
      2. Using the publically available `neo4j` dumps ([`EMBO/SourceData`](https://huggingface.co/datasets/EMBO/SourceData)).
 
+> The neo4j option is currently not supported for the new MAC processor architecture
+
 The repository will serialize the data into `xml` format to then convert it into
 ML ready format. It offers the option of automatically upload the generated data to the 🤗 Hub,
 given that a valid token is provided in the `.env` file.
+
+#### Instantiating a neo4j database and loading data on it
+
+We periodically upload neo4j data dumps of the SourceData API to our 🤗 Hub,
+[EMBO/SourceData](https://huggingface.co/datasets/EMBO/SourceData/tree/main/neo_dumps).
+
+These dumps can be downloaded and used to generate a local neo4j instance in
+the docker container using the following steps:
+
+```bash
+#Download the neo4j dump
+# Load data dump
+docker-compose down
+
+docker run --rm --name neo4j-load \
+     --env-file .env \
+     --mount type=bind,source=$PWD/data/neo4j-data,target=/data \
+     --mount type=bind,source=$PWD/data/neo_dumps,target=/dumps \
+     -it neo4j:4.1 bin/neo4j-admin load \
+     --database=neo4j --from=/dumps/sourcedata_v1-0-0.db.dump.2023-03-29-15.07.42_latest \
+     --force # Note that this will overwrite any content ! ! ! ! !
+```
 
 ### From a Neo4j dump
 
@@ -104,22 +125,7 @@ in some tens of minutes.
      python -m src.soda_data.sdneo.get_sd "/app/data/xml"
 ```
 
-#### Instantiating a neo4j database and loading data on it
-
-We periodically upload neo4j data dumps of the SourceData API to our 🤗 Hub,
-[EMBO/SourceData](https://huggingface.co/datasets/EMBO/SourceData/tree/main/neo_dumps).
-
-These dumps can be downloaded and used to generate a local neo4j instance in
-the docker container using the following steps:
-
-```bash
-
-# Load data dump
-docker run --rm --name neo4j-load --env-file .env --mount type=bind,source=$PWD/data/neo4j-data,target=/data --mount type=bind,source=$PWD/dumps,target=/dumps -it neo4j:4.1 bin/neo4j-admin load --database=neo4j --from=/dumps/<dump_filename>
-
-```
-
-### From the SourceData API
+### Loading data directly from the SourceData API
 
 It will download the data from the SourceData API and serialize it into `xml` files.
 It requires access and login credentials to the API.
@@ -181,47 +187,56 @@ and `roles_multi`. We show below ane xample schema of how the data would be orga
      |    |
      |    |--neo_file.db.dump.version
      |
-     |-----panelization
-     |     |----v1.0.0
-     |     |        |---train.jsonl
-     |     |        |---validation.jsonl
-     |     |        |---test.jsonl
-     |     |----v1.1.0
-     |     |        |---train.jsonl
-     |     |        |---validation.jsonl
-     |     |        |---test.jsonl
-     |
-     |-----ner
-     |     |----v1.0.0
-     |     |        |---train.jsonl
-     |     |        |---validation.jsonl
-     |     |        |---test.jsonl
-     |     |----v1.1.0
-     |     |        |---train.jsonl
-     |     |        |---validation.jsonl
-     |     |        |---test.jsonl
-     |
-     |-----roles_gene
-     |     |----v1.0.0
-     |     |        |---train.jsonl
-     |     |        |---validation.jsonl
-     |     |        |---test.jsonl
-     |     |----v1.1.0
-     |     |        |---train.jsonl
-     |     |        |---validation.jsonl
-     |     |        |---test.jsonl
-     |
-     |-----roles_small_mol
-     |     |----v1.0.0
-     |     |        |---train.jsonl
-     |     |        |---validation.jsonl
-     |     |        |---test.jsonl
-     |     |----v1.1.0
-     |     |        |---train.jsonl
-     |     |        |---validation.jsonl
-     |     |        |---test.jsonl
-     |
-     |-----roles_multi
+     |--token_classification
+     |   |--panelization
+     |   |  |----v1.0.0
+     |   |  |        |---train.jsonl
+     |   |  |        |---validation.jsonl
+     |   |  |        |---test.jsonl
+     |   |  |----v1.1.0
+     |   |  |        |---train.jsonl
+     |   |  |        |---validation.jsonl
+     |   |  |        |---test.jsonl
+     |   |
+     |   |--ner
+     |   |  |----v1.0.0
+     |   |  |        |---train.jsonl
+     |   |  |        |---validation.jsonl
+     |   |  |        |---test.jsonl
+     |   |  |----v1.1.0
+     |   |  |        |---train.jsonl
+     |   |  |        |---validation.jsonl
+     |   |  |        |---test.jsonl
+     |   |
+     |   |--roles_gene
+     |   |  |----v1.0.0
+     |   |  |        |---train.jsonl
+     |   |  |        |---validation.jsonl
+     |   |  |        |---test.jsonl
+     |   |  |----v1.1.0
+     |   |  |        |---train.jsonl
+     |   |  |        |---validation.jsonl
+     |   |  |        |---test.jsonl
+     |   |
+     |   |--roles_small_mol
+     |   |  |----v1.0.0
+     |   |  |        |---train.jsonl
+     |   |  |        |---validation.jsonl
+     |   |  |        |---test.jsonl
+     |   |  |----v1.1.0
+     |   |  |        |---train.jsonl
+     |   |  |        |---validation.jsonl
+     |   |  |        |---test.jsonl
+     |   |
+     |   |--roles_multi
+     |   |  |----v1.0.0
+     |   |  |        |---train.jsonl
+     |   |  |        |---validation.jsonl
+     |   |  |        |---test.jsonl
+     |   |  |----v1.1.0
+     |   |  |        |---train.jsonl
+     |   |  |        |---validation.jsonl
+     |   |  |        |---test.jsonl
 
 ```
 
@@ -244,10 +259,20 @@ or for any other kind of file:
           --repo_name "HF_USER/repo" \
           --token "HF_TOKEN" #  This is not needed if the token is configured in the .env file
 ```
+docker-compose exec -T nlp \
+          python -m soda_data.dataproc.upload_neo_dump \
+          --local_folder "/data/json/token_classification" \
+          --repo_name "EMBO/SourceData"  \
+          --path_repo "token_classification"
 
 ## Contribution to the code
 
-This part here is to be done.
+First, make sure to install the package on a development mode. Inside the container type:
+
+```bash
+     pip install -e .
+```
+
 
 ## Run the tests
 

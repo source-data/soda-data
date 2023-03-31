@@ -7,6 +7,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Converts XML data into AI ready data and uploads it to the huggingface repository.")
     parser.add_argument("--local_folder", default="/data/neo_dumps", help="Directory where the neo dumps are located.")
     parser.add_argument("--repo_name", default="EMBO/SourceData", help="Name of the repository where the dataset will be uploaded.")
+    parser.add_argument("--path_repo", default="neo_dumps", help="Name of the repository where the dataset will be uploaded.")
     parser.add_argument("--token", default="", help="Huggingface token to upload the dataset.")
     args = parser.parse_args()
 
@@ -20,7 +21,7 @@ if __name__ == "__main__":
         )
         api.upload_folder(
             folder_path=args.local_folder,
-            path_in_repo="neo_dumps",
+            path_in_repo=args.path_repo,
             repo_id=args.repo_name,
             repo_type="dataset",
             token=token,

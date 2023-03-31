@@ -33,7 +33,10 @@ if __name__ == "__main__":
     roles_multi_dataset = roles_multi.generate_dataset()
 
     # Generate folder to store the jsonl data
-    output_dir = os.path.join(JSON_FOLDER, f"{args.destination_dir}_v{args.version}")
+    tclass_dir = os.path.join(JSON_FOLDER, f"{args.destination_dir}")
+    if not os.path.exists(tclass_dir):
+        os.mkdir(tclass_dir)
+    output_dir = os.path.join(tclass_dir, f"v_{args.version}")
     if not os.path.exists(output_dir):
         os.mkdir(output_dir)
 
@@ -54,7 +57,7 @@ if __name__ == "__main__":
         )
         api.upload_folder(
             folder_path=output_dir,
-            path_in_repo=f"{args.destination_dir}_v{args.version}",
+            path_in_repo="token_classification",
             repo_id=args.repo_name,
             repo_type="dataset",
             token=args.token,
