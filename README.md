@@ -1,24 +1,15 @@
-<!-- These are examples of badges you might want to add to your README:
-     please update the URLs accordingly
-
-[![Built Status](https://api.cirrus-ci.com/github/<USER>/soda-data.svg?branch=main)](https://cirrus-ci.com/github/<USER>/soda-data)
-[![ReadTheDocs](https://readthedocs.org/projects/soda-data/badge/?version=latest)](https://soda-data.readthedocs.io/en/stable/)
-[![Coveralls](https://img.shields.io/coveralls/github/<USER>/soda-data/main.svg)](https://coveralls.io/r/<USER>/soda-data)
-[![PyPI-Server](https://img.shields.io/pypi/v/soda-data.svg)](https://pypi.org/project/soda-data/)
-[![Conda-Forge](https://img.shields.io/conda/vn/conda-forge/soda-data.svg)](https://anaconda.org/conda-forge/soda-data)
-[![Monthly Downloads](https://pepy.tech/badge/soda-data/month)](https://pepy.tech/project/soda-data)
-[![Twitter](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&label=Twitter)](https://twitter.com/soda-data)
--->
-
 <!-- [![Built Status](https://api.cirrus-ci.com/github/<USER>/soda-data.svg?branch=main)](https://cirrus-ci.com/github/<USER>/soda-data)
 [![ReadTheDocs](https://readthedocs.org/projects/soda-data/badge/?version=latest)](https://soda-data.readthedocs.io/en/stable/) -->
-[![Coveralls](https://img.shields.io/coveralls/github/drAbreu/soda-data/main.svg)](https://coveralls.io/r/drAbreu/soda-data)
-[![tests](https://github.com/source-data/soda-data/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/source-data/soda-data/actions/workflows/ci.yml)
+<!-- [![Coveralls](https://img.shields.io/coveralls/github/drAbreu/soda-data/main.svg)](https://coveralls.io/r/drAbreu/soda-data) -->
+[![Test status](https://github.com/source-data/soda-data/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/source-data/soda-data/actions/workflows/ci.yml)
 [![license](https://img.shields.io/badge/License-MIT-purple.svg)](LICENSE)
-<!-- ![Coverage Badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/drAbreu/5cad2a2e73730a10b66bffe6976b3db2/raw/source-data/soda-data/__pull_##.json) -->
+![Snyk Vulnerabilities for GitHub Repo](https://imap.fhbot.de/snyk/vulnerabilities/github/source-data/soda-data?style=plastic)
+![GitHub Pipenv locked Python version](https://imap.fhbot.de/github/pipenv/locked/python-version/source-data/soda-data?style=plastic)
+![CodeFactor Grade](https://imap.fhbot.de/codefactor/grade/github/source-data/soda-data/master?style=plastic)
+![LGTM Grade](https://imap.fhbot.de/lgtm/grade/python/github/source-data/soda-data?style=plastic)
 <!-- [![PyPI-Server](https://img.shields.io/pypi/v/soda-data.svg)](https://pypi.org/project/soda-data/) -->
 <!-- [![Conda-Forge](https://img.shields.io/conda/vn/conda-forge/soda-data.svg)](https://anaconda.org/conda-forge/soda-data) -->
-<!-- [![Monthly Downloads](https://pepy.tech/badge/soda-data/month)](https://pepy.tech/project/soda-data) -->
+[![Monthly Downloads](https://pepy.tech/badge/soda-data/month)](https://pepy.tech/project/soda-data)
 <!-- [![Twitter](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&label=Twitter)](https://twitter.com/soda-data) -->
 
 # SourceData Dataset

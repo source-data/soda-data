@@ -8,6 +8,10 @@ import os
 from soda_data import JSON_FOLDER
 from soda_data.sdneo import HF_TOKEN
 from huggingface_hub import HfApi
+from ..common import logging
+
+logging.configure_logging()
+logger = logging.get_logger(__name__)
 
 if __name__ == "__main__":
 
@@ -19,6 +23,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     # Instantiating the classes
+    logger.info("""Instantiating the classes""")
     panelization = DataGeneratorForPanelization()
     ner = DataGeneratorForTokenClassification()
     roles_gene = DataGeneratorForTokenClassification(code_map=sdc.GENEPROD_ROLES)  # type: ignore
@@ -26,10 +31,16 @@ if __name__ == "__main__":
     roles_multi = DataGeneratorForTokenClassification(roles="multiple")
 
     # Generate the datasets
+    logger.info("""Generating the datasets""")
+    logger.info("""Generating the panelization dataset""")
     panelization_dataset = panelization.generate_dataset()
+    logger.info("""Generating the ner dataset""")
     ner_dataset = ner.generate_dataset()
+    logger.info("""Generating the geneprod roles dataset""")
     roles_gene_dataset = roles_gene.generate_dataset()
+    logger.info("""Generating the small molecule roles dataset""")
     roles_small_mol_dataset = roles_small_mol.generate_dataset()
+    logger.info("""Generating the multi roles dataset""")
     roles_multi_dataset = roles_multi.generate_dataset()
 
     # Generate folder to store the jsonl data
@@ -41,6 +52,7 @@ if __name__ == "__main__":
         os.mkdir(output_dir)
 
     # Save the data to the folder
+    logger.info("""Writing the data to the folder""")
     panelization.to_jsonl(panelization_dataset, os.path.join(output_dir, "panelization"))
     ner.to_jsonl(ner_dataset, os.path.join(output_dir, "ner"))
     roles_gene.to_jsonl(roles_gene_dataset, os.path.join(output_dir, "roles_gene"))
@@ -48,6 +60,7 @@ if __name__ == "__main__":
     roles_multi.to_jsonl(roles_multi_dataset, os.path.join(output_dir, "roles_multi"))
 
     if args.repo_name:
+        logger.info("""Uploading the data to the hub""")
         # Use the huggingface api to upload the data to the hub
         token = args.token if args.token else HF_TOKEN
         if not token:
@@ -56,9 +69,9 @@ if __name__ == "__main__":
             token=args.token,
         )
         api.upload_folder(
-            folder_path=output_dir,
+            folder_path=tclass_dir,
             path_in_repo="token_classification",
             repo_id=args.repo_name,
             repo_type="dataset",
-            token=args.token,
+            token=token,
         )

@@ -85,23 +85,13 @@ jobs:
     steps:
     # steps:
     #   - uses: actions/checkout@v3
-    #   - name: Finalize coverage report
-    #     uses: schneegans/dynamic-badges-action@v1.0.0
-    #     with:
-    #       auth: ${{ secrets.GIST_SECRET }}
-    #       gistID: 5cad2a2e73730a10b66bffe6976b3db2
-    #       filename: coverage.lcov
-    #       label: Test Coverage
-    #       message: ${{ env.COVERAGE }}
-    #       color: green
-    #       namedLogo: coverage
-      - name: Upload partial coverage report
-        uses: coverallsapp/github-action@master
-        with:
-          path-to-lcov: data/coverage.lcov
-          github-token: ${{ secrets.github_token }}
-          flag-name: ${{ matrix.platform }} - py${{ matrix.python }}
-          parallel: true
+      # - name: Upload partial coverage report
+      #   uses: coverallsapp/github-action@master
+      #   with:
+      #     path-to-lcov: data/coverage.lcov
+      #     github-token: ${{ secrets.github_token }}
+      #     flag-name: ${{ matrix.platform }} - py${{ matrix.python }}
+      #     parallel: true
   # publish:
   #   needs: finalize
   #   if: ${{ github.event_name == 'push' && contains(github.ref, 'refs/tags/') }}

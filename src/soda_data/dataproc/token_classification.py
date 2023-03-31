@@ -9,6 +9,7 @@ from typing import Dict, List, Tuple
 from .xml_extract import SourceDataCodes as sdc
 import os
 import json
+from tqdm import tqdm
 
 
 class DataGeneratorForTokenClassification(XMLEncoder):
@@ -154,7 +155,7 @@ class DataGeneratorForTokenClassification(XMLEncoder):
             "validation": [],
             "test": []
         }
-        for file_name, split in self.split_dict.items():
+        for file_name, split in tqdm(self.split_dict.items()):
             split_data[split].extend(self._encode_xml_example(file_name))
 
         dataset = {
@@ -203,7 +204,7 @@ class DataGeneratorForTokenClassification(XMLEncoder):
                         "labels": dataset[split]["labels"][i],
                         "is_category": dataset[split]["is_category"][i],
                         "text": dataset[split]["text"][i]
-                    }))
+                    }, ensure_ascii=False)+"\n")
 
     def _encode_xml_example(self, file_name: str) -> List[Tuple[List[str], List[str], List[int], str]]:
         """Given a file name, it encodes the XML file into a BatchEncoding object
@@ -381,7 +382,7 @@ class DataGeneratorForPanelization(XMLEncoder):
             "validation": [],
             "test": []
         }
-        for file_name, split in self.split_dict.items():
+        for file_name, split in tqdm(self.split_dict.items()):
             split_data[split].extend(self._encode_xml_example(file_name))
 
         dataset = {
@@ -427,7 +428,7 @@ class DataGeneratorForPanelization(XMLEncoder):
                         "words": dataset[split]["words"][i],
                         "labels": dataset[split]["labels"][i],
                         "text": dataset[split]["text"][i]
-                    }))
+                    }, ensure_ascii=False)+"\n")
 
     def _encode_xml_example(self, file_name: str) -> List[Tuple[List[str], List[str], str]]:
         """Given a file name, it encodes the XML file into a BatchEncoding object
