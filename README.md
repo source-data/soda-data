@@ -10,8 +10,8 @@
 <!-- [![Monthly Downloads](https://pepy.tech/badge/soda-data/month)](https://pepy.tech/project/soda-data) -->
 <!-- [![Twitter](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&label=Twitter)](https://twitter.com/soda-data) -->
 <p align="center">
-    <a href="https://circleci.com/gh/huggingface/transformers">
-        <img alt="Build" src="https://img.shields.io/circleci/build/github/huggingface/transformers/main">
+    <a href="https://github.com/source-data/soda-data/actions/workflows/ci.yml">
+        <img alt="Build" src="https://github.com/source-data/soda-data/actions/workflows/ci.yml/badge.svg?branch=master">
     </a>
     <a href="https://github.com/source-data/soda-data/blob/master/LICENSE">
         <img alt="GitHub" src="https://img.shields.io/github/license/source-data/soda-data.svg?color=blue">
