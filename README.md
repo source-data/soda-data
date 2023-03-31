@@ -13,8 +13,8 @@
     <a href="https://circleci.com/gh/huggingface/transformers">
         <img alt="Build" src="https://img.shields.io/circleci/build/github/huggingface/transformers/main">
     </a>
-    <a href="https://github.com/source-data/soda-data/blob/master/LICENSE.txt">
-        <img alt="GitHub" src="https://img.shields.io/github/license/huggingface/transformers.svg?color=blue">
+    <a href="https://github.com/source-data/soda-data/blob/master/LICENSE">
+        <img alt="GitHub" src="https://img.shields.io/github/license/source-data/soda-data.svg?color=blue">
     </a>
     <a href="https://huggingface.co/docs/transformers/index">
         <img alt="Documentation" src="https://img.shields.io/website/http/huggingface.co/docs/transformers/index.svg?down_color=red&down_message=offline&up_message=online">
