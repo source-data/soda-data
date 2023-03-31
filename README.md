@@ -16,8 +16,8 @@
     <a href="https://github.com/source-data/soda-data/blob/master/LICENSE">
         <img alt="GitHub" src="https://img.shields.io/github/license/source-data/soda-data.svg?color=blue">
     </a>
-    <a href="https://huggingface.co/docs/transformers/index">
-        <img alt="Documentation" src="https://img.shields.io/website/http/huggingface.co/docs/transformers/index.svg?down_color=red&down_message=offline&up_message=online">
+    <a href="https://www.codefactor.io/repository/github/source-data/soda-data">
+        <img alt="CodeFactor" src="https://www.codefactor.io/repository/github/source-data/soda-data/badge">
     </a>
     <a href="https://github.com/huggingface/transformers/releases">
         <img alt="GitHub release" src="https://img.shields.io/github/release/huggingface/transformers.svg">
