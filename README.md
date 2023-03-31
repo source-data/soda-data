@@ -3,15 +3,18 @@
 <!-- [![Coveralls](https://img.shields.io/coveralls/github/drAbreu/soda-data/main.svg)](https://coveralls.io/r/drAbreu/soda-data) -->
 [![Test status](https://github.com/source-data/soda-data/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/source-data/soda-data/actions/workflows/ci.yml)
 [![license](https://img.shields.io/badge/License-MIT-purple.svg)](LICENSE)
-[![Snyk Vulnerabilities for GitHub Repo](https://imap.fhbot.de/snyk/vulnerabilities/github/source-data/soda-data?style=plastic)]
-[![Known Vulnerabilities](https://snyk.io/test/github/source-data/soda-data/badge.svg)]
 [![CodeFactor](https://www.codefactor.io/repository/github/source-data/soda-data/badge)](https://www.codefactor.io/repository/github/source-data/soda-data)
 [![HuggingFace badge](https://img.shields.io/badge/%F0%9F%A4%97HuggingFace-Join-yellow)](https://huggingface.co/hpcai-tech)
 <!-- [![PyPI-Server](https://img.shields.io/pypi/v/soda-data.svg)](https://pypi.org/project/soda-data/) -->
 <!-- [![Conda-Forge](https://img.shields.io/conda/vn/conda-forge/soda-data.svg)](https://anaconda.org/conda-forge/soda-data) -->
 <!-- [![Monthly Downloads](https://pepy.tech/badge/soda-data/month)](https://pepy.tech/project/soda-data) -->
 <!-- [![Twitter](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&label=Twitter)](https://twitter.com/soda-data) -->
-
+<p align="center">
+     [![Test status](https://github.com/source-data/soda-data/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/source-data/soda-data/actions/workflows/ci.yml)
+     [![license](https://img.shields.io/badge/License-MIT-purple.svg)](LICENSE)
+     [![CodeFactor](https://www.codefactor.io/repository/github/source-data/soda-data/badge)](https://www.codefactor.io/repository/github/source-data/soda-data)
+     [![HuggingFace badge](https://img.shields.io/badge/%F0%9F%A4%97HuggingFace-Join-yellow)](https://huggingface.co/hpcai-tech)
+</p>
 # SourceData Dataset
 
 > The largest annotated biomedical corpus for machine learning and AI in the publishing context.
