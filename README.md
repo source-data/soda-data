@@ -3,7 +3,7 @@
 <!-- [![Coveralls](https://img.shields.io/coveralls/github/drAbreu/soda-data/main.svg)](https://coveralls.io/r/drAbreu/soda-data) -->
 [![Test status](https://github.com/source-data/soda-data/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/source-data/soda-data/actions/workflows/ci.yml)
 [![license](https://img.shields.io/badge/License-MIT-purple.svg)](LICENSE)
-![Snyk Vulnerabilities for GitHub Repo](https://imap.fhbot.de/snyk/vulnerabilities/github/source-data/soda-data?style=plastic)
+[![Snyk Vulnerabilities for GitHub Repo](https://imap.fhbot.de/snyk/vulnerabilities/github/source-data/soda-data?style=plastic)]
 [![Known Vulnerabilities](https://snyk.io/test/github/source-data/soda-data/badge.svg)]
 [![CodeFactor](https://www.codefactor.io/repository/github/source-data/soda-data/badge)](https://www.codefactor.io/repository/github/source-data/soda-data)
 [![HuggingFace badge](https://img.shields.io/badge/%F0%9F%A4%97HuggingFace-Join-yellow)](https://huggingface.co/hpcai-tech)
