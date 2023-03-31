@@ -22,6 +22,9 @@
     <a href="https://huggingface.co/EMBO">
         <img alt="GitHub release" src="https://img.shields.io/badge/%F0%9F%A4%97HuggingFace-Join-yellow">
     </a>
+    <a href="https://doi.org/10.57967/hf/0495">
+        <img alt="GitHub release" src="http://img.shields.io/badge/DOI-10.57967/hf/0495-B31B1B.svg">
+    </a>
 </p>
 
 # SourceData Dataset
