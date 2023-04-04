@@ -18,7 +18,7 @@ if __name__ == "__main__":
             name="soda_data",
             version="0.1.0",
             python_requires=">=3.8",
-            author="Source Data",
+            author="Dr. Jorge Abreu Vicente, Thomas Lemberger",
             author_email="source_data@embo.org",
             description="""The largest annotated biomedical corpus for machine learning and AI in the publishing context.""",
             long_description=long_description,

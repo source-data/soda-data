@@ -51,6 +51,31 @@ for entity disambiguation and NEL.
 
 <!-- pyscaffold-notes -->
 
+## Cite SourceData
+
+```latex
+@misc {embo_2023,
+	author       = { Abreu-Vicente, J. \& Lemberger, T. },
+	title        = { The SourceData dataset},
+	year         = 2023,
+	url          = { https://huggingface.co/datasets/EMBO/SourceData },
+	doi          = { 10.57967/hf/0495 },
+	publisher    = { Hugging Face }
+}
+
+@article {Liechti2017,
+     author = {Liechti, Robin and George, Nancy and Götz, Lou and El-Gebali, Sara and Chasapi, Anastasia and Crespo, Isaac and Xenarios, Ioannis and Lemberger, Thomas},
+     title = {SourceData - a semantic platform for curating and searching figures},
+     year = {2017},
+     volume = {14},
+     number = {11},
+     doi = {10.1038/nmeth.4471},
+     URL = {https://doi.org/10.1038/nmeth.4471},
+     eprint = {https://www.biorxiv.org/content/early/2016/06/20/058529.full.pdf},
+     journal = {Nature Methods}
+}
+```
+
 ## First time installation
 
 Clone the repository to your computer and follow the following steps.
