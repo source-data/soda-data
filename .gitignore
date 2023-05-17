@@ -61,3 +61,5 @@ log/
 *__pycache__*
 
 *.lcov
+
+notebooks/

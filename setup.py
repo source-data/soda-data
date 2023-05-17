@@ -14,7 +14,9 @@ with open("README.md", "r", encoding="utf-8") as fh:
 if __name__ == "__main__":
     try:
         setup(
-            use_scm_version={"version_scheme": "no-guess-dev"},
+            # use_scm_version={"version_scheme": "no-guess-dev"},
+            # use_scm_version=True,
+            # setup_requires=['setuptools_scm'],
             name="soda_data",
             version="0.1.0",
             python_requires=">=3.8",
