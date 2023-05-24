@@ -82,6 +82,16 @@ Clone the repository to your computer and follow the following steps.
 First, take a look to the `.env.example` file and generate your own,
 with your persnoal values in an `.env` file.
 
+First, prepare a virtual environment:
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install --upgrade pip
+pip install docker-compose>=1.28.5
+```
+
+> ⚠️ **Make sure that you are generating a valid .env file!!**: Specially important for neo4j ⚠️
+
 ```bash
 docker-compose build --force-rm --no-cache
 docker-compose down --volumes # to clean the content of the volumes
@@ -93,7 +103,7 @@ docker-compose up -d
 docker-compose exec -T nlp pip install .
 ```
 
-> Make sure to configure <YOUR_PASS> in the .env file of the .repository
+> ⚠️  Make sure to configure <YOUR_PASS> in the .env file of the .repository ⚠️
 
 ## Obtaining the data:
 
@@ -140,7 +150,7 @@ docker run --rm --name neo4j-load \
      --mount type=bind,source=$PWD/data/neo4j-data,target=/data \
      --mount type=bind,source=$PWD/data/neo_dumps,target=/dumps \
      -it neo4j:4.1 bin/neo4j-admin load \
-     --database=neo4j --from=/dumps/sourcedata_v1-0-0.db.dump.2023-03-29-15.07.42_latest \
+     --database=neo4j --from=/dumps/sourcedata_v1-0-0.db.dump.2023-03-29-15.07.42 \
      --force # Note that this will overwrite any content ! ! ! ! !
 ```
 
@@ -183,7 +193,7 @@ By default it will be done anytime a dataprocessing is run. It generates a
 file versioning and uploads all the data to a folder of name vx.y.z in
 the repository.
 
-#### Upload the `TokenClassification` datasets
+## Upload the `TokenClassification` datasets
 
 The `TokenClassification` datasets can be directly processed from the `xml` files.
 a simple command will generate and upload them to the 🤗 Hub.
@@ -271,7 +281,53 @@ and `roles_multi`. We show below ane xample schema of how the data would be orga
 
 ```
 
-#### Upload neo4j data dumps
+
+## Generate the `sprout` 🌱 and `SoDa-sprout` 🌱🥤 datasets
+
+The `soda-sprout` 🌱 dataset is intended to generate sentence embeddings
+that are specialized in proteins.
+
+The datasets are trained using [sentence-transformers](https://www.sbert.net/).
+We generate two levels of embedding training. First, a general protein
+dataset that contains triplets (`anchor`, `positive`, `negative`). `anchor` is a text
+with the description of a given protein as it appears at [UniProt](uniprot.org/).
+We use the half million curated entries in the database. The positive example
+belongs to an abstract of a paper described as cuaration reference of that protein
+in UniProt. The negative examples are calculated as hard negatives. From all the curated
+UniProt entries not containing the `anchor` protein, we use [SPECTER embeddings](https://github.com/allenai/specter)
+to select the 10 most similar UniProt abstract references and randomly choose one of them.
+
+In a second level, we apply a similar procedure to the SourceData dataset.
+For the train and validation splits, we use the panel captions as `anchor`. We map the
+proteins on each panel caption to their UniProt entries.
+as positive example we choose a SourceData panel containing one of the proteins present
+in `anchor`. As hard negative example, we estimate the 10 most similar panel captions to
+`anchor`, not containing any of the proteins mentioned in `anchor`. We choose randomly one
+of those 10 cases as the negative example.
+This second level of the dataset is known as `soda-sprout` 🌱🥤.
+
+We plan to use both datasets to improve the capabilities of `TokenClassification` models train to
+identify protein mentions. This is a first study that will be followed, if successful, by all the
+categories present in SourceData.
+
+In its current implementation, it runs on CPU in a serial fashion.
+```bash
+# from inside the container
+python -m src.soda-data.dataproc.sprout --do_uniprot --do_soda
+```
+
+```latex
+@misc {embo_2023_soda_sprout,
+	author       = { Abreu-Vicente, J. \& Lemberger, T. },
+	title        = { SoDa SPROUT 🌱},
+	year         = 2023,
+	url          = { https://huggingface.co/datasets/EMBO/SourceData },
+	doi          = { 10.57967/hf/0495 },
+	publisher    = { Hugging Face }
+}
+```
+
+## Upload neo4j data dumps
 
 It will upload a folder containing one or several files. It can be used for neo dumps
 or for any other kind of file:
