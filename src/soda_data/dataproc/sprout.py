@@ -129,8 +129,8 @@ class SproutDataGenerator:
                     caption_embeddings = sentence_model.encode(caption)
                     tmp_df["cosine_scores"] = util.cos_sim(caption_embeddings, caption_embeddings).squeeze().tolist()
                     tmp_df["diff_proteins"] = tmp_df["proteins"].apply(lambda x: (set(proteins.split(";")) - set(x.split(";")) == set(proteins.split(";")))).tolist()
-                    negative_example = tmp_df[tmp_df["diff_proteins"]].sort_values(by="cosine_scores").head(10).sample(1)["panel_caption"].values[0]
-                    positive_example = tmp_df[~tmp_df["diff_proteins"]].sort_values(by="cosine_scores").head(10).sample(1)["panel_caption"].values[0]
+                    negative_example = tmp_df[tmp_df["diff_proteins"]].sort_values(by="cosine_scores").head(self.neg_examples).sample(1)["panel_caption"].values[0]
+                    positive_example = tmp_df[~tmp_df["diff_proteins"]].sort_values(by="cosine_scores").head(self.neg_examples).sample(1)["panel_caption"].values[0]
                     file.write(
                         json.dumps(
                             {
