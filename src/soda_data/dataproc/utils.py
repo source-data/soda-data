@@ -67,3 +67,11 @@ def cleanup(text: str) -> str:
     text = re.sub(r'[–—‐−]', '-', text)  # controversial!!!
     text = re.sub(r'^[Aa]bstract', '', text)
     return text
+
+
+def remove_html_tags(str_: str) -> str:
+    """Removes HTML tags from a string."""
+    if isinstance(str_, str):
+        return re.sub(r'<[^>]*>', '', str_)
+    else:
+        return ""

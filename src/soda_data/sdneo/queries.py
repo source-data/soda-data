@@ -145,3 +145,16 @@ class GET_PANEL_PROPERTIES(Query):
         "href",
         "coords",
     ]
+
+
+class GET_SODA_PROTEINS(Query):
+    code = """
+    MATCH (collection:SDCollection {name: 'PUBLICSEARCH'})-->(article:SDArticle)-->(figure:SDFigure)-->(panel:SDPanel)-->(tag: SDTag)
+
+    WHERE tag.type IN ["protein"]
+
+    WITH DISTINCT panel as p, tag, article.doi as doi
+
+    RETURN doi, p.formatted_caption as panel_caption, COLLECT(tag.ext_ids) as proteins
+    """
+    returns = ["doi", "panel_caption", "proteins"]

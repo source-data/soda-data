@@ -18,7 +18,7 @@ if __name__ == "__main__":
             # use_scm_version=True,
             # setup_requires=['setuptools_scm'],
             name="soda_data",
-            version="0.1.0",
+            version="1.0.0",
             python_requires=">=3.8",
             author="Dr. Jorge Abreu Vicente, Thomas Lemberger",
             author_email="source_data@embo.org",
