@@ -158,3 +158,16 @@ class GET_SODA_PROTEINS(Query):
     RETURN doi, p.formatted_caption as panel_caption, COLLECT(tag.ext_ids) as proteins
     """
     returns = ["doi", "panel_caption", "proteins"]
+
+
+class GET_SODA_PROTEINS_FIGURES(Query):
+    code = """
+    MATCH (collection:SDCollection {name: 'PUBLICSEARCH'})-->(article:SDArticle)-->(f:SDFigure)-->(panel:SDPanel)-->(tag: SDTag)
+
+    WHERE tag.type IN ["protein"]
+
+    WITH DISTINCT f as figure, panel as p, tag, article.doi as doi
+
+    RETURN doi, figure.caption as panel_caption, COLLECT(tag.ext_ids) as proteins
+    """
+    returns = ["doi", "panel_caption", "proteins"]
