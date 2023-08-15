@@ -39,7 +39,8 @@ if __name__ == "__main__":
                 "neo4j",
                 "responses<0.19",
                 "py2neo==2021.2.3",
-                "beautifulsoup4==4.10.0"
+                "beautifulsoup4==4.10.0",
+                "sentence-transformers==2.2.2"
             ],
             classifiers=[
                 # full list: https://pypi.org/pypi?%3Aaction=list_classifiers
