@@ -10,6 +10,7 @@ from .xml_extract import SourceDataCodes as sdc
 import os
 import json
 from tqdm import tqdm
+from .patches import PATCH_GENERIC_TERMS
 
 
 class DataGeneratorForTokenClassification(XMLEncoder):
@@ -298,13 +299,13 @@ class DataGeneratorForTokenClassification(XMLEncoder):
                 word += char
                 label_word += str(labels[i]).replace("None", "O")
             elif char == " ":
-                if word not in [""]:
+                if (word.lower() not in [""]) and (word.lower() not in PATCH_GENERIC_TERMS["label_text"]):
                     word_level_words.append(word)
                     word_level_labels.append(label_word[0])
                 word = ''
                 label_word = ''
             else:
-                if word not in [""]:
+                if (word.lower() not in [""]) and (word.lower() not in PATCH_GENERIC_TERMS["label_text"]):
                     word_level_words.append(word)
                     word_level_labels.append(label_word[0])
 
