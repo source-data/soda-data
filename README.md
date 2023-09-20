@@ -195,14 +195,17 @@ a simple command will generate and upload them to the 🤗 Hub.
           --destination_dir "/path/to/local/folder" \
           --version "x.y.z" \
           --repo_name "HF_USER/repo" \
-          --token "HF_TOKEN" #  This is not needed if the token is configured in the .env file
+          --token "HF_TOKEN" \ #  This is not needed if the token is configured in the .env file
+          --patch_generic # Applies the generic patch to the dataset
 
      # From inside the docker container
      python -m soda_data.dataproc.create_token_classification \
           --destination_dir "/path/to/local/folder" \
           --version "x.y.z" \
           --repo_name "HF_USER/repo" \
-          --token "HF_TOKEN" #  This is not needed if the token is configured in the .env file
+          --token "HF_TOKEN" \ #  This is not needed if the token is configured in the .env file
+          --patch_generic # Applies the generic patch to the dataset
+
 ```
 
 The procedure will generate a folder `vx.y.z` inside the folder `token_classification`.

@@ -20,12 +20,15 @@ if __name__ == "__main__":
     parser.add_argument("--version", default="0.0.0", help="Version of the dataset.")
     parser.add_argument("--repo_name", default="", help="Name of the repository where the dataset will be uploaded.")
     parser.add_argument("--token", default="", help="Huggingface token to upload the dataset.")
+    parser.add_argument("--patch_generic", action="store_true", help="Apply patches.")
     args = parser.parse_args()
 
     # Instantiating the classes
     logger.info("""Instantiating the classes""")
+    patch_generic = True if args.patch_generic else False
+
     panelization = DataGeneratorForPanelization()
-    ner = DataGeneratorForTokenClassification()
+    ner = DataGeneratorForTokenClassification(apply_generic_patch=patch_generic)
     roles_gene = DataGeneratorForTokenClassification(code_map=sdc.GENEPROD_ROLES)  # type: ignore
     roles_small_mol = DataGeneratorForTokenClassification(code_map=sdc.SMALL_MOL_ROLES)  # type: ignore
     roles_multi = DataGeneratorForTokenClassification(roles="multiple")

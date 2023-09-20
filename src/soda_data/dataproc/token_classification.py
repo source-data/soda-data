@@ -25,7 +25,8 @@ class DataGeneratorForTokenClassification(XMLEncoder):
             split_dict: Dict[str, str] = {},
             split_file: str = SPLIT_FILE,
             code_map: CodeMap = sdc.ENTITY_TYPES,  # type: ignore
-            roles: str = "single"
+            roles: str = "single",
+            apply_generic_patch: bool = False,
             ):
         """ Initializes the DataGeneratorForTokenClassification class.
         It inherits from the XMLEncoder class. It generates a dataset for
@@ -45,6 +46,7 @@ class DataGeneratorForTokenClassification(XMLEncoder):
                 It can accept sdc.ENTITY_TYPES, sdc.GENEPROD_ROLES, and sdc.SMALL_MOL_ROLES.
                 Defaults to sdc.ENTITY_TYPES.
             roles (str, optional): Whether to use single or multiple roles. Defaults to "single".
+            apply_generic_patch (bool, optional): Whether to apply patches to clean data.
 
             ```python
 
@@ -132,6 +134,7 @@ class DataGeneratorForTokenClassification(XMLEncoder):
             )
         self.code_map = code_map
         self.roles = roles
+        self.apply_generic_patch = apply_generic_patch
 
     def generate_dataset(self) -> Dict[str, dict]:
         """
@@ -179,6 +182,15 @@ class DataGeneratorForTokenClassification(XMLEncoder):
                 "text": [x[3] for x in split_data["test"]],
             }
         }
+
+        if self.code_map == sdc.ENTITY_TYPES:
+            if self.apply_generic_patch:
+                dataset = {
+                    "train": self._apply_patch_generic_terms(dataset["train"]),
+                    "validation": self._apply_patch_generic_terms(dataset["validation"]),
+                    "test": self._apply_patch_generic_terms(dataset["test"])
+                }
+
         return dataset
 
     def to_jsonl(self, dataset: dict, outfolder: str):
@@ -299,13 +311,13 @@ class DataGeneratorForTokenClassification(XMLEncoder):
                 word += char
                 label_word += str(labels[i]).replace("None", "O")
             elif char == " ":
-                if (word.lower() not in [""]) and (word.lower() not in PATCH_GENERIC_TERMS["label_text"]):
+                if word not in [""]:
                     word_level_words.append(word)
                     word_level_labels.append(label_word[0])
                 word = ''
                 label_word = ''
             else:
-                if (word.lower() not in [""]) and (word.lower() not in PATCH_GENERIC_TERMS["label_text"]):
+                if word not in [""]:
                     word_level_words.append(word)
                     word_level_labels.append(label_word[0])
 
@@ -318,6 +330,92 @@ class DataGeneratorForTokenClassification(XMLEncoder):
         assert len(word_level_words) == len(word_level_iob2_labels), "Length of labels and words not identical!"
         return word_level_words, word_level_iob2_labels
 
+    def _apply_patch_generic_terms(self, split):
+        """
+        Applies a patch to remove labels of generic terms.
+        These terms are listed in patches.py
+        """
+        words = split["words"]
+        labels = split["labels"]
+
+        patched_labels = []
+        patched_words = []
+        patched_is_category = []
+
+        entity_name = []
+        entity_label = []
+
+        for w_sentence, l_sentence in zip(words, labels):
+            inside_entity = False
+            patched_labels_sentence = []
+            patched_words_sentence = []
+
+            for word, label in zip(w_sentence, l_sentence):
+                if (label == "O") and (not inside_entity):
+                    patched_labels_sentence.append(label)
+                    patched_words_sentence.append(word)
+                if (label.startswith("B-")) and (inside_entity):
+                    if " ".join(entity_name).lower() in PATCH_GENERIC_TERMS["label_text"]:
+                        for w in entity_name:
+                            patched_words_sentence.append(w)
+                            patched_labels_sentence.append("O")
+                    else:
+                        for w, l in zip(entity_name, entity_label):
+                            patched_words_sentence.append(w)
+                            patched_labels_sentence.append(l)
+                    inside_entity = True
+                    entity_name = [word]
+                    entity_label = [label]
+                if (label.startswith("B-")) and (not inside_entity):
+                    inside_entity = True
+                    entity_name = [word]
+                    entity_label = [label]
+                if (label != "O") and (label.startswith("I-")):
+                    entity_name.append(word)
+                    entity_label.append(label)
+                if (label == "O") and (inside_entity):
+                    inside_entity = False
+                    if " ".join(entity_name).lower() in PATCH_GENERIC_TERMS["label_text"]:
+                        for w in entity_name:
+                            patched_words_sentence.append(w)
+                            patched_labels_sentence.append("O")
+                    else:
+                        for w, l in zip(entity_name, entity_label):
+                            patched_words_sentence.append(w)
+                            patched_labels_sentence.append(l)
+                    patched_words_sentence.append(word)
+                    patched_labels_sentence.append(label)
+            if inside_entity:
+                if " ".join(entity_name).lower() in PATCH_GENERIC_TERMS["label_text"]:
+                    for w in entity_name:
+                        patched_words_sentence.append(w)
+                        patched_labels_sentence.append("O")
+                else:
+                    for w, l in zip(entity_name, entity_label):
+                        patched_words_sentence.append(w)
+                        patched_labels_sentence.append(l)
+
+            assert len(patched_labels_sentence) == len(l_sentence), f"{len(patched_labels_sentence)} not same length as {len(l_sentence)}: \n {patched_labels_sentence} \n {l_sentence} \n {' '.join(w_sentence)}"
+            assert len(patched_words_sentence) == len(w_sentence), f"{len(patched_words_sentence)} not same length as {len(w_sentence)}:  \n {patched_words_sentence} \n {w_sentence} \n {' '.join(w_sentence)}"
+
+            patched_is_category_sentence = []
+            for lab in patched_labels_sentence:
+                if lab != "O":
+                    patched_is_category_sentence.append(l)
+                else:
+                    patched_is_category_sentence.append(0)
+
+            patched_labels.append(patched_labels_sentence)
+            patched_words.append(patched_words_sentence)
+            patched_is_category.append(patched_is_category_sentence)
+
+        return {
+            "words": patched_words,
+            "labels": patched_labels,
+            "is_category": patched_is_category,
+            "text": split["text"],
+        }
+
 
 class DataGeneratorForPanelization(XMLEncoder):
     def __init__(
@@ -329,7 +427,7 @@ class DataGeneratorForPanelization(XMLEncoder):
             remove_tail=True,
             min_length=32,
             split_dict: Dict[str, str] = {},
-            split_file: str = SPLIT_FILE
+            split_file: str = SPLIT_FILE,
             ):
         """
         Generates a dataset for panelization tasks. This dataset is
