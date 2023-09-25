@@ -64,6 +64,7 @@ if __name__ == "__main__":
 
     if args.repo_name:
         logger.info("""Uploading the data to the hub""")
+        logger.info(f"""Dataset name: {args.repo_name}""")
         # Use the huggingface api to upload the data to the hub
         token = args.token if args.token else HF_TOKEN
         if not token:

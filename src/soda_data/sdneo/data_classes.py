@@ -492,14 +492,13 @@ class SourceDataAPIParser:
         ext_ids = (
             "///".join(response.get("ext_ids", []))
             if isinstance("///".join(response.get("ext_ids", [])), list)
-            else response.get("externalresponsebases", "")
+            else response.get("ext_ids", "")
         )
         ext_dbs = (
             "///".join(response.get("ext_dbs", []))
             if isinstance("///".join(response.get("ext_dbs", [])), list)
             else response.get("ext_dbs", "")
         )
-        norm_text = response.get("norm_text", "")
         in_caption = response.get("in_caption", "") in ["Y", "true", True]
         ext_names = (
             "///".join(response.get("ext_names", []))
@@ -529,7 +528,6 @@ class SourceDataAPIParser:
             "text": text,
             "ext_ids": ext_ids,
             "ext_dbs": ext_dbs,
-            "norm_text": norm_text,
             "in_caption": in_caption,
             "ext_names": ext_names,
             "ext_tax_ids": ext_tax_ids,

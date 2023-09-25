@@ -140,7 +140,7 @@ docker run --rm --name neo4j-load \
      --mount type=bind,source=$PWD/data/neo4j-data,target=/data \
      --mount type=bind,source=$PWD/data/neo_dumps,target=/dumps \
      -it neo4j:4.1 bin/neo4j-admin load \
-     --database=neo4j --from=/dumps/sourcedata_v1-0-0.db.dump.2023-03-29-15.07.42_latest \
+     --database=neo4j --from=/dumps/sourcedata_v2-0-2.db.dump.2023-09-25-08.45.40 \
      --force # Note that this will overwrite any content ! ! ! ! !
 ```
 
@@ -205,7 +205,6 @@ a simple command will generate and upload them to the 🤗 Hub.
           --repo_name "HF_USER/repo" \
           --token "HF_TOKEN" \ #  This is not needed if the token is configured in the .env file
           --patch_generic # Applies the generic patch to the dataset
-
 ```
 
 The procedure will generate a folder `vx.y.z` inside the folder `token_classification`.
@@ -322,7 +321,7 @@ First, make sure to install the package on a development mode. Inside the contai
      docker-compose run --rm flask python -m sdg.sdneo PUBLICSEARCH --api sdapi  # import source data public data
 
      # Dump the data from sd-graph
-     docker run --rm --name neo4j-dump --env-file .env --mount type=bind,source=$PWD/data/neo4j-data,target=/data --mount type=bind,source=$PWD/dumps,target=/dumps neo4j:4.1 bin/neo4j-admin dump --database=neo4j --to=/dumps/sourcedata_v0-0-0.db.dump.`date +%Y-%m-%d-%H.%M.%S`
+     docker run --rm --name neo4j-dump --env-file .env --mount type=bind,source=$PWD/data/neo4j-data,target=/data --mount type=bind,source=$PWD/dumps,target=/dumps neo4j:4.1 bin/neo4j-admin dump --database=neo4j --to=/dumps/sourcedata_v2-0-2.db.dump.`date +%Y-%m-%d-%H.%M.%S`
 
 ```
 

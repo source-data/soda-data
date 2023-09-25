@@ -10,7 +10,7 @@ from .xml_extract import SourceDataCodes as sdc
 import os
 import json
 from tqdm import tqdm
-from .patches import PATCH_GENERIC_TERMS
+from .patches import PATCH_GENERIC_TERMS_V2
 
 
 class DataGeneratorForTokenClassification(XMLEncoder):
@@ -355,7 +355,7 @@ class DataGeneratorForTokenClassification(XMLEncoder):
                     patched_labels_sentence.append(label)
                     patched_words_sentence.append(word)
                 if (label.startswith("B-")) and (inside_entity):
-                    if " ".join(entity_name).lower() in PATCH_GENERIC_TERMS["label_text"]:
+                    if " ".join(entity_name).lower() in PATCH_GENERIC_TERMS_V2["label_text"]:
                         for w in entity_name:
                             patched_words_sentence.append(w)
                             patched_labels_sentence.append("O")
@@ -375,7 +375,7 @@ class DataGeneratorForTokenClassification(XMLEncoder):
                     entity_label.append(label)
                 if (label == "O") and (inside_entity):
                     inside_entity = False
-                    if " ".join(entity_name).lower() in PATCH_GENERIC_TERMS["label_text"]:
+                    if " ".join(entity_name).lower() in PATCH_GENERIC_TERMS_V2["label_text"]:
                         for w in entity_name:
                             patched_words_sentence.append(w)
                             patched_labels_sentence.append("O")
@@ -386,7 +386,7 @@ class DataGeneratorForTokenClassification(XMLEncoder):
                     patched_words_sentence.append(word)
                     patched_labels_sentence.append(label)
             if inside_entity:
-                if " ".join(entity_name).lower() in PATCH_GENERIC_TERMS["label_text"]:
+                if " ".join(entity_name).lower() in PATCH_GENERIC_TERMS_V2["label_text"]:
                     for w in entity_name:
                         patched_words_sentence.append(w)
                         patched_labels_sentence.append("O")
@@ -401,7 +401,10 @@ class DataGeneratorForTokenClassification(XMLEncoder):
             patched_is_category_sentence = []
             for lab in patched_labels_sentence:
                 if lab != "O":
-                    patched_is_category_sentence.append(l)
+                    if "GENEPROD" in lab:
+                        patched_is_category_sentence.append(1)
+                    elif "SMALL_MOLECULE" in lab:
+                        patched_is_category_sentence.append(2)
                 else:
                     patched_is_category_sentence.append(0)
 
