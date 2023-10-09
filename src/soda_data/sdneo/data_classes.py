@@ -4,6 +4,8 @@ from typing import Dict, List, Union
 
 from bs4 import BeautifulSoup
 
+from ..dataproc.patches import UNNORMALIZED_CELLS
+
 from ..common import logging
 
 logger = logging.get_logger(__name__)
@@ -520,6 +522,14 @@ class SourceDataAPIParser:
             if isinstance("///".join(response.get("ext_dbs", [])), list)
             else response.get("ext_urls", "")
         )
+        if entity_type == "cell":
+            if text in UNNORMALIZED_CELLS:
+                entity_type = UNNORMALIZED_CELLS[text]["entity_type"]
+                ext_ids = UNNORMALIZED_CELLS[text]["ext_ids"]
+                ext_dbs = UNNORMALIZED_CELLS[text]["ext_dbs"]
+                ext_urls = UNNORMALIZED_CELLS[text]["ext_urls"]
+                
+
         props = {
             "tag_id": tag_id,
             "category": category,
