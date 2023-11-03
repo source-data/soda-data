@@ -29,8 +29,6 @@
         <img alt="GitHub release" src="http://img.shields.io/badge/DOI-10.57967/hf/0495-B31B1B.svg">
     </a>
 
-
- https://img.shields.io/badge/<SUBJECT>-<IDENTIFIER>-<COLOR>?logo=<SIMPLEICONS NAME>&logoColor=<LOGO COLOR>
 </p>
 
 # SourceData Dataset
