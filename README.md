@@ -10,6 +10,9 @@
 <!-- [![Monthly Downloads](https://pepy.tech/badge/soda-data/month)](https://pepy.tech/project/soda-data) -->
 <!-- [![Twitter](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&label=Twitter)](https://twitter.com/soda-data) -->
 <p align="center">
+    <a href="https://arxiv.org/abs/2310.20440">
+        <img alt="ArXiv paper" src="https://img.shields.io/badge/cs.CL-2310.20440-b31b1b?logo=arxiv&logoColor=red">
+    </a>
     <a href="https://github.com/source-data/soda-data/actions/workflows/ci.yml">
         <img alt="Build" src="https://github.com/source-data/soda-data/actions/workflows/ci.yml/badge.svg?branch=master">
     </a>
@@ -21,9 +24,6 @@
     </a>
     <a href="https://huggingface.co/EMBO">
         <img alt="GitHub release" src="https://img.shields.io/badge/%F0%9F%A4%97HuggingFace-Join-yellow">
-    </a>
-    <a href="https://arxiv.org/abs/2310.20440">
-        <img alt="ArXiv paper" src="https://img.shields.io/badge/cs.CL-2310.20440-b31b1b?logo=arxiv&logoColor=red">
     </a>
     <a href="https://doi.org/10.57967/hf/0495">
         <img alt="GitHub release" src="http://img.shields.io/badge/DOI-10.57967/hf/0495-B31B1B.svg">
