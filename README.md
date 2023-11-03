@@ -54,6 +54,24 @@ for entity disambiguation and NEL.
 ## Cite SourceData
 
 ```latex
+
+@ARTICLE{2023arXiv231020440A,
+       author = {{Abreu-Vicente}, Jorge and {Sonntag}, Hannah and {Eidens}, Thomas and {Lemberger}, Thomas},
+        title = "{The SourceData-NLP dataset: integrating curation into scientific publishing for training large language models}",
+      journal = {arXiv e-prints},
+     keywords = {Computer Science - Computation and Language},
+         year = 2023,
+        month = oct,
+          eid = {arXiv:2310.20440},
+        pages = {arXiv:2310.20440},
+          doi = {10.48550/arXiv.2310.20440},
+archivePrefix = {arXiv},
+       eprint = {2310.20440},
+ primaryClass = {cs.CL},
+       adsurl = {https://ui.adsabs.harvard.edu/abs/2023arXiv231020440A},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
 @misc {embo_2023,
 	author       = { Abreu-Vicente, J. \& Lemberger, T. },
 	title        = { The SourceData dataset},
