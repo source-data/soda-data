@@ -57,7 +57,7 @@ for entity disambiguation and NEL.
 
 @ARTICLE{2023arXiv231020440A,
        author = {{Abreu-Vicente}, Jorge and {Sonntag}, Hannah and {Eidens}, Thomas and {Lemberger}, Thomas},
-        title = "{The SourceData-NLP dataset: integrating curation into scientific publishing for training large language models}",
+        title = {The SourceData-NLP dataset: integrating curation into scientific publishing for training large language models},
       journal = {arXiv e-prints},
      keywords = {Computer Science - Computation and Language},
          year = 2023,
