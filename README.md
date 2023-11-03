@@ -22,9 +22,15 @@
     <a href="https://huggingface.co/EMBO">
         <img alt="GitHub release" src="https://img.shields.io/badge/%F0%9F%A4%97HuggingFace-Join-yellow">
     </a>
+    <a href="https://arxiv.org/abs/2310.20440">
+        <img alt="ArXiv paper" src="https://img.shields.io/badge/cs.CL-2310.20440-b31b1b?logo=arxiv&logoColor=red">
+    </a>
     <a href="https://doi.org/10.57967/hf/0495">
         <img alt="GitHub release" src="http://img.shields.io/badge/DOI-10.57967/hf/0495-B31B1B.svg">
     </a>
+
+
+ https://img.shields.io/badge/<SUBJECT>-<IDENTIFIER>-<COLOR>?logo=<SIMPLEICONS NAME>&logoColor=<LOGO COLOR>
 </p>
 
 # SourceData Dataset
