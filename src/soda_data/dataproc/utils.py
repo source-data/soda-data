@@ -3,7 +3,7 @@ import json
 from numpy.random import choice
 from typing import Dict, List, Optional
 import re
-from soda_data import XML_FOLDER, JSON_FOLDER
+from .. import XML_FOLDER, JSON_FOLDER
 
 SPLIT_FILE = os.path.join(JSON_FOLDER, "split.json")
 

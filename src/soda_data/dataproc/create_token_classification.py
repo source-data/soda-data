@@ -5,8 +5,8 @@ from .token_classification import (
 )
 from .xml_extract import SourceDataCodes as sdc
 import os
-from soda_data import JSON_FOLDER
-from soda_data.sdneo import HF_TOKEN
+from .. import JSON_FOLDER
+from ..sdneo import HF_TOKEN
 from huggingface_hub import HfApi
 from ..common import logging
 

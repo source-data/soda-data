@@ -9,7 +9,7 @@ from pathlib import Path
 from lxml.etree import parse, tostring
 from xml.etree import ElementTree
 from .utils import innertext, cleanup, create_split, SPLIT_FILE
-from soda_data import XML_FOLDER
+from .. import XML_FOLDER
 import json
 
 

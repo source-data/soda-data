@@ -2,7 +2,7 @@
 the HuggingFace Transformers library.
 """
 from .xml_extract import XMLEncoder, CodeMap
-from soda_data import XML_FOLDER
+from .. import XML_FOLDER
 from .utils import SPLIT_FILE, innertext
 from lxml.etree import fromstring, Element
 from typing import Dict, List, Tuple
