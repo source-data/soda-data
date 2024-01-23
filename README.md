@@ -10,6 +10,9 @@
 <!-- [![Monthly Downloads](https://pepy.tech/badge/soda-data/month)](https://pepy.tech/project/soda-data) -->
 <!-- [![Twitter](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&label=Twitter)](https://twitter.com/soda-data) -->
 <p align="center">
+    <a href="https://arxiv.org/abs/2310.20440">
+        <img alt="ArXiv paper" src="https://img.shields.io/badge/cs.CL-2310.20440-b31b1b?logo=arxiv&logoColor=red">
+    </a>
     <a href="https://github.com/source-data/soda-data/actions/workflows/ci.yml">
         <img alt="Build" src="https://github.com/source-data/soda-data/actions/workflows/ci.yml/badge.svg?branch=master">
     </a>
@@ -25,6 +28,7 @@
     <a href="https://doi.org/10.57967/hf/0495">
         <img alt="GitHub release" src="http://img.shields.io/badge/DOI-10.57967/hf/0495-B31B1B.svg">
     </a>
+
 </p>
 
 # SourceData Dataset
@@ -54,6 +58,24 @@ for entity disambiguation and NEL.
 ## Cite SourceData
 
 ```latex
+
+@ARTICLE{2023arXiv231020440A,
+       author = {{Abreu-Vicente}, Jorge and {Sonntag}, Hannah and {Eidens}, Thomas and {Lemberger}, Thomas},
+        title = {The SourceData-NLP dataset: integrating curation into scientific publishing for training large language models},
+      journal = {arXiv e-prints},
+     keywords = {Computer Science - Computation and Language},
+         year = 2023,
+        month = oct,
+          eid = {arXiv:2310.20440},
+        pages = {arXiv:2310.20440},
+          doi = {10.48550/arXiv.2310.20440},
+archivePrefix = {arXiv},
+       eprint = {2310.20440},
+ primaryClass = {cs.CL},
+       adsurl = {https://ui.adsabs.harvard.edu/abs/2023arXiv231020440A},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
 @misc {embo_2023,
 	author       = { Abreu-Vicente, J. \& Lemberger, T. },
 	title        = { The SourceData dataset},
