@@ -103,6 +103,7 @@ def process_xml_file(file_path):
     # Iterate through each figure
     for figure in xml_tree.xpath('./fig'):
         # Concatenate figure title and all figure panels for the figure caption
+
         figure_caption = ""
         for children in figure:
             figure_caption += innertext(children) + " "

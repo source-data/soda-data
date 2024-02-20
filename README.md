@@ -110,9 +110,6 @@ docker-compose down --volumes # to clean the content of the volumes
 docker-compose up -d
 
 # Wait about 30 seconds until neo4j is up and running
-
-# Install the package in the docker container:
-docker-compose exec -T nlp pip install .
 ```
 
 > Make sure to configure <YOUR_PASS> in the .env file of the .repository
@@ -157,6 +154,9 @@ the docker container using the following steps:
 # Load data dump
 docker-compose down
 
+# Check in the HuggingFace repo for the available neo4j dumps
+wget -P $PWD/data/neo_dumps https://huggingface.co/datasets/EMBO/SourceData/resolve/main/neo_dumps/sourcedata_v2-0-2.db.dump.2023-09-25-08.45.40
+
 docker run --rm --name neo4j-load \
      --env-file .env \
      --mount type=bind,source=$PWD/data/neo4j-data,target=/data \
@@ -164,6 +164,12 @@ docker run --rm --name neo4j-load \
      -it neo4j:4.1 bin/neo4j-admin load \
      --database=neo4j --from=/dumps/sourcedata_v2-0-2.db.dump.2023-09-25-08.45.40 \
      --force # Note that this will overwrite any content ! ! ! ! !
+```
+
+> To make it work on new Apple Mac, we need to use neo4j >=4.4 which is more recent than the version used for some of the dumps. This is the reason for the warning _"The loaded database is not on the latest format (current:SF4.0.0, latest:SF4.3.0). Set dbms.allow_upgrade=true to enable migration."_ indicates that the `NEO4J_dbms_allow__upgrade=true` should be set. This is included in .env file and set in the docker-compose file.
+
+```bash
+docker compose up
 ```
 
 ### From a Neo4j dump

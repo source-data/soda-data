@@ -6,7 +6,7 @@
     PyScaffold helps you to put up the scaffold of your new Python project.
     Learn more under: https://pyscaffold.org/
 """
-from setuptools import setup
+from setuptools import setup, find_packages
 
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
@@ -24,20 +24,26 @@ if __name__ == "__main__":
             long_description=long_description,
             long_description_content_type="text/markdown",
             url="https://github.com/source-data/soda-data",
-            packages=["soda_data"],
+            packages=find_packages(),
             install_requires=[
+                "numpy==1.22.2",
                 "torch",
                 "transformers==4.20",
                 "datasets~=2.10.0",
-                "nltk",
-                "scikit-learn",
-                "python-dotenv",
-                "seqeval",
-                "lxml",
-                "neo4j",
+                "nltk==3.5",
+                "scikit-learn==0.24.0",
+                "python-dotenv==0.15.0",
+                "seqeval==1.2.2",
+                "lxml==4.6.2",
+                "neo4j==5.16.0",
                 "responses<0.19",
-                "py2neo==2021.2.3",
+                "py2neo==2021.2.4",
                 "beautifulsoup4==4.10.0"
+                "jupyterlab",
+                "ipykernel",
+                # for jupyter lab
+                "ipywidgets",
+                "jupyterlab-widgets",
             ],
             classifiers=[
                 # full list: https://pypi.org/pypi?%3Aaction=list_classifiers

@@ -17,14 +17,15 @@ services:
     env_file:
     - ./.env
     ports:
-      - 8888:8888  # this allows to run jupyter notebook --port=8888 --ip=0.0.0.0 --allow-root
+      - 8891:8891  # this allows to run jupyter notebook --port=8888 --ip=0.0.0.0 --allow-root
     working_dir: /app
-    command: ["jupyter", "notebook", "--port=8888", "--ip=0.0.0.0", "--allow-root"]
+    command: ["jupyter", "notebook", "--port=8891", "--ip=0.0.0.0", "--allow-root"]
 
   neo4j:
-    image: neo4j:4.1
+    image: neo4j:4.4
     environment:
       - NEO4JLABS_PLUGINS=["apoc", "graph-data-science"]
+      - NEO4J_dbms_allow__upgrade=${NEO4J_dbms_allow__upgrade}
       - NEO4J_AUTH=${NEO_USERNAME}/${NEO_PASSWORD}
       # - EXTENSION_SCRIPT=/app/neo4j-init.sh
     ulimits:
@@ -39,8 +40,8 @@ services:
     env_file:
       - .env
     ports:
-      - "7480:7474"
-      - "7690:7687"
+      - "7481:7474"
+      - "7691:7687"
   redis:
     image: redis:6
     volumes:
