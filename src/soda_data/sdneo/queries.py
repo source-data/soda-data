@@ -145,3 +145,76 @@ class GET_PANEL_PROPERTIES(Query):
         "href",
         "coords",
     ]
+
+
+class GET_ENTITY_SUMMARY_NER(Query):
+    code = """
+MATCH (t:SDTag)
+WITH 
+  CASE 
+    WHEN t.type IN ['gene', 'protein'] THEN 'gene products'
+    WHEN t.type IN ['cell line', 'cell_line'] THEN 'cell line'
+    ELSE t.type
+  END AS TypeAggregated,
+  t.category AS Category,
+  t.text AS Text
+WITH 
+  TypeAggregated, 
+  Category, 
+  COUNT(*) AS TotalCount, 
+  COUNT(DISTINCT Text) AS UniqueTagCount
+RETURN 
+  TypeAggregated,
+  Category,
+  TotalCount,
+  UniqueTagCount,
+  (100.0 * UniqueTagCount / TotalCount) AS UniquenessRatio
+ORDER BY TypeAggregated, Category
+    """
+    returns = ['TypeAggregated', 'Category', 'TotalCount', 'UniqueTagCount', 'UniquenessRatio']
+
+class GET_ENTITY_SUMMARY_NEL(Query):
+    code = """
+    MATCH (t:SDTag)
+    WHERE t.ext_ids IS NOT NULL AND t.ext_ids <> ''
+    WITH 
+    CASE 
+        WHEN t.type IN ['gene', 'protein'] THEN 'gene products'
+        WHEN t.type IN ['cell line', 'cell_line'] THEN 'cell line'
+        ELSE t.type
+    END AS category,
+    t.ext_ids AS ExtIds
+    WITH category, COUNT(*) AS TotalMentions, COUNT(DISTINCT ExtIds) AS UniqueExtIds
+    RETURN 
+    category, 
+    TotalMentions, 
+    UniqueExtIds, 
+    (100.0 * UniqueExtIds / TotalMentions) AS UniquenessRatio
+    ORDER BY category    
+    """
+    returns = ['category', 'TotalMentions', 'UniqueExtIds', 'UniquenessRatio']
+
+
+class GET_ENTITY_SUMMARY_ROLES_OTHERS(Query):
+    code = """
+        MATCH (t:SDTag)
+        WITH COUNT(t) AS TotalCount
+        MATCH (t:SDTag)
+        WHERE NOT t.role IN ['intervention', 'assayed']
+        WITH t.type AS Type, COUNT(t) AS WithARole, TotalCount
+        RETURN Type, WithARole, ROUND(100 * (WithARole * 1.0 / TotalCount), 1) AS Percentage
+        ORDER BY WithARole DESC
+    """
+    returns = ['Type', 'WithARole', 'Percentage']
+
+class GET_ENTITY_SUMMARY_ROLES(Query):
+    code = """
+        MATCH (t:SDTag)
+        WITH COUNT(t) AS TotalCount
+        MATCH (t:SDTag)
+        WHERE t.role IN ['intervention', 'assayed']
+        WITH t.type AS Type, COUNT(t) AS WithARole, TotalCount
+        RETURN Type, WithARole, ROUND(100 * (WithARole * 1.0 / TotalCount), 1) AS Percentage
+        ORDER BY WithARole DESC
+    """
+    returns = ['Type', 'WithARole', 'Percentage']

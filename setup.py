@@ -38,12 +38,11 @@ if __name__ == "__main__":
                 "neo4j==5.16.0",
                 "responses<0.19",
                 "py2neo==2021.2.4",
-                "beautifulsoup4==4.10.0"
-                "jupyterlab",
-                "ipykernel",
-                # for jupyter lab
-                "ipywidgets",
-                "jupyterlab-widgets",
+                # "jupyterlab",
+                # "ipykernel",
+                # # for jupyter lab
+                # "ipywidgets",
+                # "jupyterlab-widgets",
             ],
             classifiers=[
                 # full list: https://pypi.org/pypi?%3Aaction=list_classifiers

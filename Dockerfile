@@ -5,10 +5,11 @@ RUN curl -sSf https://sh.rustup.rs | sh -s -- -y
 ENV PATH="/root/.cargo/bin:${PATH}"
 
 RUN apt-get update \
-&& pip install --upgrade pip setuptools \
-&& pip install --upgrade pip 
+&& pip install --upgrade pip setuptools 
 
-RUN pip install --upgrade pip && pip install -e .
+COPY setup.py setup.py
+
+RUN pip install -e .
 
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*1
