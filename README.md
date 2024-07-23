@@ -328,6 +328,11 @@ docker-compose exec -T nlp \
           --repo_name "EMBO/SourceData"  \
           --path_repo "token_classification"
 
+
+## Informstion extraction data for LLMs
+
+This data can be generated using the `cypher` queries in `src/soda_data/sdneo/neo_queries.py`. The data generated in this way will be added to the `EMBO/SourceData` repository in HuggingFace🤗, in the folder `information_extraction`.
+
 ## Contribution to the code
 
 First, make sure to install the package on a development mode. Inside the container type:
