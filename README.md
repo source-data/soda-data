@@ -157,7 +157,7 @@ docker-compose down
 # If you run into permission problems add sudo or use chmod to change the permissions in ./data
 mkdir data/neo_dumps
 # Check in the HuggingFace repo for the available neo4j dumps
-wget -P $PWD/data/neo_dumps https://huggingface.co/datasets/EMBO/SourceData/resolve/main/neo_dumps/sourcedata_v1-0-0.db.dump.2023-03-29-15.07.42_latest
+wget -P $PWD/data/neo_dumps https://huggingface.co/datasets/EMBO/SourceData/resolve/main/neo_dumps/sourcedata_v1-0-0.db.dump.2023-03-29-15.07.42
 
 docker run --rm --name neo4j-load \
      --env-file .env \
